@@ -27,7 +27,7 @@ const Header = () => {
         </nav>
         <Link
           to="/cart"
-          className="inline-flex items-center gap-2 text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0"
+          className="inline-flex items-center gap-2 text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0 transition-colors"
         >
           Cart
           <FiShoppingCart size={20} />

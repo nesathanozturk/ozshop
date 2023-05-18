@@ -11,7 +11,7 @@ const Hero = () => {
             t-shirts, flip-flops, sunglasses, hats, and more!
           </p>
           <div className="flex justify-center">
-            <button className="inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0">
+            <button className="inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0 transition-colors">
               Show Now
               <svg
                 fill="none"
