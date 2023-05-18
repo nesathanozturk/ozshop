@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import FeatureCard from "../../components/feature-card/FeatureCard";
+import Categories from "../../components/categories/Categories";
 import Hero from "../../components/hero/Hero";
 import StatsCard from "../../components/stats-card/StatsCard";
 import ProductCard from "../../components/product-card/ProductCard";
@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <FeatureCard />
+      <Categories />
       <div className="flex flex-col text-center w-full mt-20">
         <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
           Products
