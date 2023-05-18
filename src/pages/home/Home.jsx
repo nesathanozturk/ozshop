@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import Categories from "../../components/categories/Categories";
 import Hero from "../../components/hero/Hero";
@@ -10,21 +11,25 @@ const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch(
-        "https://fakestoreapi.com/products?limit=12",
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const data = await response.json();
-      setProducts(data);
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          "https://fakestoreapi.com/products?limit=12",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await res.data;
+        setProducts(data);
+      } catch (e) {
+        console.error(e);
+      }
     };
-    fetchProducts();
+    getProducts();
   }, []);
 
   return (
