@@ -1,27 +1,9 @@
 import { FaShoppingBag } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { navigations } from "../../utils/data";
 
 const Header = () => {
-  const navigations = [
-    {
-      name: "Home",
-      path: "/",
-    },
-    {
-      name: "Products",
-      path: "/products",
-    },
-    {
-      name: "About",
-      path: "/about",
-    },
-    {
-      name: "Contact",
-      path: "/contact",
-    },
-  ];
-
   return (
     <header className="text-gray-600 shadow-lg">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -34,7 +16,11 @@ const Header = () => {
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
           {navigations.map((navigation) => (
-            <Link to={navigation.path} className="mr-5 hover:text-gray-900">
+            <Link
+              key={navigation.name}
+              to={navigation.path}
+              className="mr-5 hover:text-gray-900"
+            >
               {navigation.name}
             </Link>
           ))}
