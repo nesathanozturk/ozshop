@@ -10,11 +10,17 @@ const Home = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch(
-        "https://fakestoreapi.com/products?limit=12"
+        "https://fakestoreapi.com/products?limit=12",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
       );
       const data = await response.json();
       setProducts(data);
-      console.log(data);
     };
     fetchProducts();
   }, []);

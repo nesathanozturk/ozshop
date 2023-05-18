@@ -38,13 +38,17 @@ const Header = () => {
           </svg>
           <span className="ml-3 text-xl">Ecommerce</span>
         </a>
-        <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center"></nav>
-        {navigations.map((navigation) => (
-          <Link to={navigation.path} className="mr-5 hover:text-gray-900">
-            {navigation.name}
-          </Link>
-        ))}
-        <button className="inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0">
+        <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+          {navigations.map((navigation) => (
+            <Link to={navigation.path} className="mr-5 hover:text-gray-900">
+              {navigation.name}
+            </Link>
+          ))}
+        </nav>
+        <Link
+          to="/cart"
+          className="inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0"
+        >
           Go to Cart
           <svg
             fill="none"
@@ -57,7 +61,7 @@ const Header = () => {
           >
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
-        </button>
+        </Link>
       </div>
     </header>
   );

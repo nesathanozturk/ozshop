@@ -1,6 +1,52 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Cart = () => {
+  const [total, setTotal] = useState(0);
+
+  const carts = JSON.parse(localStorage.getItem("cart")) || [];
+
+  useEffect(() => {
+    const getTotal = () =>
+      carts.reduce((prev, item) => {
+        return prev + item.price * item.quantity;
+      }, 0);
+    setTotal(total);
+  }, [carts]);
+
+  if (carts.length === 0) <div>Cart is empty!</div>;
+
+  const handleInc = (id) => {
+    const updatedCart = carts.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      }
+      return item;
+    });
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const handleDec = (id) => {
+    const updatedCart = carts.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          quantity: item.quantity - 1,
+        };
+      }
+      return item;
+    });
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const removeProduct = (id) => {
+    const updatedCart = carts.filter((item) => item.id !== id);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
   return (
     <div className="container mx-auto mt-10">
       <div className="flex shadow-md my-10">
