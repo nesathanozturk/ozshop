@@ -1,9 +1,9 @@
-import ProductsCard from "../../components/productsCard/ProductsCard";
+import ProductCard from "../../components/productCard/ProductCard";
 
 const Products = () => {
   return (
     <>
-      <ProductsCard />
+      <ProductCard />
     </>
   );
 };

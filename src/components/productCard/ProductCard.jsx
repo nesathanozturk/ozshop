@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ProductsCard = ({ products = [] }) => {
+const ProductCard = ({ products = [] }) => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -38,4 +38,4 @@ const ProductsCard = ({ products = [] }) => {
   );
 };
 
-export default ProductsCard;
+export default ProductCard;
