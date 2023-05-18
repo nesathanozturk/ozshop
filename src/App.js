@@ -3,7 +3,7 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
 import ProductDetail from "./pages/productDetail/ProductDetail";
-import ProductCard from "./components/productCard/ProductCard";
+import Products from "./pages/products/Products";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/products" exact element={<ProductCard />} />
+        <Route path="/products" exact element={<Products />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
       <Footer />
