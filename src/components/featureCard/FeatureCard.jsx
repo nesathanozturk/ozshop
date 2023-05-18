@@ -28,8 +28,8 @@ const FeatureCard = ({ cards = [1, 2, 3] }) => {
                       <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                     </svg>
                   </div>
-                  <h2 className="text-gray-900 text-lg title-font font-medium">
-                    Shooting Stars
+                  <h2 className="text-gray-900 text-lg title-font font-medium capitalize">
+                    {card || "Card Title"}
                   </h2>
                 </div>
                 <div className="flex-grow">
@@ -37,7 +37,10 @@ const FeatureCard = ({ cards = [1, 2, 3] }) => {
                     Blue bottle crucifix vinyl post-ironic four dollar toast
                     vegan taxidermy. Gastropub indxgo juice poutine.
                   </p>
-                  <a className="mt-3 text-indigo-500 inline-flex items-center">
+                  <a
+                    href="#learnmore"
+                    className="mt-3 text-indigo-500 inline-flex items-center"
+                  >
                     Learn More
                     <svg
                       fill="none"
