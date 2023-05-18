@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import FeatureCard from "../../components/featureCard/FeatureCard";
 import Hero from "../../components/hero/Hero";
 import StatsCard from "../../components/statsCard/StatsCard";
-import Products from "../../components/products/Products";
+import ProductsCard from "../../components/productsCard/ProductsCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -31,11 +31,11 @@ const Home = () => {
         </h1>
       </div>
       {products.length > 0 ? (
-        <Products products={products} />
+        <ProductsCard products={products} />
       ) : (
         <div>Loading...</div>
       )}
-      <Products />
+      <ProductsCard />
       <FeatureCard />
       <StatsCard />
     </>
