@@ -1,5 +1,6 @@
 import FeatureCard from "../../components/featureCard/FeatureCard";
 import Hero from "../../components/hero/Hero";
+import StatsCard from "../../components/statsCard/StatsCard";
 import Products from "../../components/products/Products";
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       </div>
       <Products />
       <FeatureCard />
+      <StatsCard />
     </>
   );
 };
