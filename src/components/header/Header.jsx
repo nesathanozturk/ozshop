@@ -1,4 +1,25 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
+  const navigations = [
+    {
+      name: "Home",
+      path: "/",
+    },
+    {
+      name: "Products",
+      path: "/products",
+    },
+    {
+      name: "About",
+      path: "/about",
+    },
+    {
+      name: "Contact",
+      path: "/contact",
+    },
+  ];
+
   return (
     <header className="text-gray-600 shadow-lg">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -18,6 +39,11 @@ const Header = () => {
           <span className="ml-3 text-xl">Ecommerce</span>
         </a>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center"></nav>
+        {navigations.map((navigation) => (
+          <Link to={navigation.path} className="mr-5 hover:text-gray-900">
+            {navigation.name}
+          </Link>
+        ))}
         <button className="inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0">
           Go to Cart
           <svg
