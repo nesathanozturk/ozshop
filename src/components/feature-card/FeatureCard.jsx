@@ -4,17 +4,10 @@ const FeatureCard = ({ cards = [] }) => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-10 mx-auto">
-        <div className="flex flex-col text-center w-full mb-10">
-          <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
-            Categories
-          </h2>
-          <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">
-            All Categories
-          </h1>
-        </div>
         <div className="flex flex-wrap -m-4">
           {cards?.map((card) => (
             <Link
+              key={card.id}
               to={`/categories/${card}`}
               className="p-4 md:w-1/3 cursor-pointer"
             >
@@ -37,9 +30,9 @@ const FeatureCard = ({ cards = [] }) => {
                     <svg
                       fill="none"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-4 h-4 ml-2"
                       viewBox="0 0 24 24"
                     >

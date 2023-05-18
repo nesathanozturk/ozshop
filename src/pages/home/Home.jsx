@@ -30,6 +30,7 @@ const Home = () => {
   return (
     <>
       <Hero />
+      <Title title="Categories" titleAlt="All Categories" />
       <Categories />
       <Title title="Products" titleAlt="Most Popular Products" />
       {products?.length > 0 ? <ProductCard products={products} /> : <Loading />}
