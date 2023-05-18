@@ -37,6 +37,7 @@ const Home = () => {
           Most Popular Products
         </h1>
       </div>
+      <div></div>
       {products.length > 0 ? (
         <ProductCard products={products} />
       ) : (

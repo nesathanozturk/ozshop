@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ products = [] }) => {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-wrap -m-4">
+      <div className="container px-5 py-8 mx-auto">
+        <div className="flex gap-10 justify-center flex-wrap">
           {products.map((product) => (
             <Link
               key={product?.id}
               to={`/product/${product?.id}`}
-              className="lg:w-1/4 md:w-1/2 p-4 w-full border border-opacity-50 mb-4 cursor-pointer"
+              className="lg:w-1/5 md:w-1/2 p-4 w-full border border-opacity-50 mb-4 cursor-pointer hover:scale-105 hover:shadow-lg transform transition duration-500 ease-in-out"
             >
               <Link
                 to={`product/${product?.id}`}
@@ -28,7 +28,7 @@ const ProductCard = ({ products = [] }) => {
                 <h2 className="text-gray-900 title-font text-lg font-medium">
                   {product?.title}
                 </h2>
-                <p className="mt-1 text-md font-semibold">${product.price}</p>
+                <p className="mt-1 text-md font-semibold">${product?.price}</p>
               </div>
             </Link>
           ))}
