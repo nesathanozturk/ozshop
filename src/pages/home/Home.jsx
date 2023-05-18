@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import FeatureCard from "../../components/featureCard/FeatureCard";
+import FeatureCard from "../../components/feature-card/FeatureCard";
 import Hero from "../../components/hero/Hero";
-import StatsCard from "../../components/statsCard/StatsCard";
-import ProductCard from "../../components/productCard/ProductCard";
+import StatsCard from "../../components/stats-card/StatsCard";
+import ProductCard from "../../components/product-card/ProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
