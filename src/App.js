@@ -1,12 +1,17 @@
+import { Routes, Route } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Home from "./modules/home/Home";
+import Product from "./modules/product/Product";
 
 const App = () => {
   return (
     <>
       <Header />
-      <Home />
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/product/:id" element={<Product />} />
+      </Routes>
       <Footer />
     </>
   );
