@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { TiTimes } from "react-icons/ti";
 import { useEffect, useState } from "react";
 
 const Cart = () => {
@@ -71,22 +72,16 @@ const Cart = () => {
           </div>
           {carts?.map((cart) => {
             return (
-              <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+              <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5 relative">
                 <div className="flex w-2/5">
                   <div className="w-20">
                     <img className="h-24" src={cart?.image} alt={cart?.title} />
                   </div>
-                  <div className="flex flex-col justify-between ml-4 flex-grow">
+                  <div className="flex flex-col gap-3 ml-4 flex-grow">
                     <span className="font-bold text-sm">{cart?.title}</span>
                     <span className="text-red-500 text-xs capitalize">
                       {cart?.category}
                     </span>
-                    <div
-                      className="font-semibold hover:text-red-500 text-gray-500 text-xs cursor-pointer"
-                      onClick={() => removeProduct(cart?.id)}
-                    >
-                      Remove
-                    </div>
                   </div>
                 </div>
                 <div className="flex justify-center w-1/5">
@@ -117,6 +112,12 @@ const Cart = () => {
                 </span>
                 <span className="text-center w-1/5 font-semibold text-sm">
                   ${cart?.price * cart?.quantity}
+                </span>
+                <span
+                  className="absolute top-3 right-5 font-semibold hover:text-red-500 text-gray-500 text-xs cursor-pointer"
+                  onClick={() => removeProduct(cart?.id)}
+                >
+                  <TiTimes size={18} />
                 </span>
               </div>
             );
@@ -154,7 +155,7 @@ const Cart = () => {
           </div>
           <div className="py-10">
             <label
-              for="promo"
+              htmlFor="promo"
               className="font-semibold inline-block mb-3 text-sm uppercase"
             >
               Promo Code
