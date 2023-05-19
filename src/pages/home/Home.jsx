@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useCartContext from "../../hooks/use-cart-context";
 import Categories from "../../components/categories/Categories";
-import Hero from "../../components/hero/Hero";
+import Hero from "../../layouts/hero/Hero";
 import StatsCard from "../../components/stats-card/StatsCard";
 import Loading from "../../components/loading/Loading";
 import Title from "../../components/title/Title";
