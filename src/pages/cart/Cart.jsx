@@ -35,20 +35,17 @@ const Cart = () => {
             <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">
               Price
             </h3>
-            <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">
-              Total
-            </h3>
           </div>
           {carts?.map((cart) => {
             return (
-              <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5 relative">
+              <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5 relative cursor-pointer">
                 <div className="flex w-2/5">
                   <div className="w-20">
                     <img className="h-24" src={cart?.image} alt={cart?.title} />
                   </div>
                   <div className="flex flex-col gap-3 ml-4 flex-grow">
                     <span className="font-bold text-sm">{cart?.title}</span>
-                    <span className="text-red-500 text-xs capitalize">
+                    <span className="text-gray-500 text-xs capitalize">
                       {cart?.category}
                     </span>
                   </div>
@@ -79,9 +76,6 @@ const Cart = () => {
                 <span className="text-center w-1/5 font-semibold text-sm">
                   ${cart?.price}
                 </span>
-                <span className="text-center w-1/5 font-semibold text-sm">
-                  ${cart?.price * cart?.quantity}
-                </span>
                 <span
                   className="absolute top-3 right-5 font-semibold hover:text-red-500 text-gray-500 text-xs cursor-pointer"
                   onClick={() => removeProduct(cart?.id)}
@@ -108,12 +102,7 @@ const Cart = () => {
           <h1 className="font-semibold text-2xl border-b pb-8">
             Order Summary
           </h1>
-          <div className="mt-10 mb-5">
-            <span className="font-semibold text-sm uppercase">
-              Items {carts?.length}
-            </span>
-          </div>
-          <div>
+          <div className="mt-4">
             <label className="font-medium inline-block mb-3 text-sm uppercase">
               Shipping
             </label>
