@@ -1,5 +1,6 @@
-import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { createContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const CartContext = createContext();
 
@@ -107,6 +108,12 @@ function Provider({ children }) {
     localStorage.setItem("cart", JSON.stringify(items));
   };
 
+  const addedProductAtCartNotify = () => toast("Product added to cart");
+
+  const removedProductAtCartNotify = () => toast("Product removed from cart");
+
+  const clearCartNotify = () => toast("You have cleared your cart");
+
   const addProductToCart = (product) => {
     const existItem = carts.find((item) => item.id === product.id);
 
@@ -123,18 +130,24 @@ function Provider({ children }) {
       setCarts([...carts, { ...product, quantity: 1 }]);
       saveToLocalStorage(carts);
     }
+    addedProductAtCartNotify();
   };
 
   const removeProduct = (id) => {
     const updatedCart = carts.filter((item) => item.id !== id);
     setCarts(updatedCart);
     saveToLocalStorage(updatedCart);
+    removedProductAtCartNotify();
   };
 
   const clearCart = () => {
     const updatedCart = carts.filter((item) => item.id && !item.id);
     setCarts(updatedCart);
     saveToLocalStorage(updatedCart);
+
+    if (carts.length > 0) {
+      clearCartNotify();
+    }
   };
 
   const handleChangeAmount = (product, d) => {

@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useCartContext from "../../hooks/use-cart-context";
 import Loading from "../../components/loading/Loading";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const ProductDetail = () => {
   const { product, getProductDetail, addProductToCart } = useCartContext();
@@ -164,6 +166,18 @@ const ProductDetail = () => {
           </div>
         </section>
       )}
+      <ToastContainer
+        position="top-left"
+        autoClose={1500}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 };
