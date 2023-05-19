@@ -7,7 +7,7 @@ const FeatureCard = ({ cards = [] }) => {
         <div className="flex flex-wrap -m-4">
           {cards?.map((card) => (
             <Link
-              key={card?.id}
+              key={card}
               to={`/categories/${card}`}
               className="p-4 md:w-1/4 cursor-pointer"
             >
