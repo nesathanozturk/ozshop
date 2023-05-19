@@ -130,7 +130,7 @@ const ProductDetail = () => {
               </span>
               <div className="flex justify-between items-center">
                 <button
-                  className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded transition-all"
+                  className="flex ml-auto text-white bg-indigo-500 border-0 text-sm md:text-base py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded transition-all"
                   onClick={() => addProductToCart(product)}
                 >
                   Add to cart
