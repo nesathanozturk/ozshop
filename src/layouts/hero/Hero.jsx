@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import hero from "../../assets/images/hero.jpg";
 
 const Hero = () => {
   return (
@@ -36,7 +37,7 @@ const Hero = () => {
           <img
             className="object-cover object-center rounded"
             alt="Hero"
-            src="https://www.bethesdatailors.com/wp-content/uploads/2021/01/Reliable-Clothes-Store-for-All-in-NSW.jpg"
+            src={hero}
           />
         </div>
       </div>
