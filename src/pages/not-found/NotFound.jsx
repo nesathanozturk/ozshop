@@ -8,7 +8,7 @@ const NotFound = () => {
       <div className="flex flex-col justify-center items-center gap-6 mt-24">
         <svg
           className="emoji-404 "
-          enable-background="new 0 0 226 249.135"
+          enableBackground="new 0 0 226 249.135"
           height="249.135"
           id="Layer_1"
           overflow="visible"
@@ -18,7 +18,7 @@ const NotFound = () => {
         >
           <circle cx="113" cy="113" fill="#FFE585" r="109" />
           <line
-            enable-background="new    "
+            enableBackground="new    "
             fill="none"
             opacity="0.29"
             stroke="#6E6E96"
@@ -31,7 +31,7 @@ const NotFound = () => {
             y2="245.135"
           />
           <line
-            enable-background="new    "
+            enableBackground="new    "
             fill="none"
             opacity="0.17"
             stroke="#6E6E96"
@@ -44,7 +44,7 @@ const NotFound = () => {
             y2="245.135"
           />
           <line
-            enable-background="new    "
+            enableBackground="new    "
             fill="none"
             opacity="0.17"
             stroke="#6E6E96"
@@ -67,7 +67,7 @@ const NotFound = () => {
           <ellipse
             cx="67.732"
             cy="140.894"
-            enable-background="new    "
+            enableBackground="new    "
             fill="#FF0000"
             opacity="0.18"
             rx="17.372"
@@ -76,7 +76,7 @@ const NotFound = () => {
           <ellipse
             cx="154.88"
             cy="140.894"
-            enable-background="new    "
+            enableBackground="new    "
             fill="#FF0000"
             opacity="0.18"
             rx="17.371"
