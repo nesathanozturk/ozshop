@@ -14,7 +14,7 @@ const Home = () => {
     const getProducts = async () => {
       try {
         const res = await axios.get(
-          "https://fakestoreapi.com/products?limit=12",
+          "https://fakestoreapi.com/products?limit=6",
           {
             method: "GET",
             headers: {
