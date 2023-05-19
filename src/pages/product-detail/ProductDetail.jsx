@@ -1,5 +1,7 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Loading from "../../components/loading/Loading";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
@@ -7,16 +9,16 @@ const ProductDetail = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const data = await response.json();
-      setProduct(data);
+      try {
+        const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
+        const data = await res.data;
+        setProduct(data);
+      } catch (err) {
+        throw new Error(err);
+      }
     };
     fetchProduct();
   }, []);
-
-  if (!Object.keys(product).length > 0) {
-    return <div>Product Not Found</div>;
-  }
 
   const addProductToCart = (product) => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -40,6 +42,10 @@ const ProductDetail = () => {
       );
     }
   };
+
+  if (!Object.keys(product).length > 0) {
+    return <Loading />;
+  }
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
