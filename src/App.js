@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Cart from "./pages/cart/Cart";
 import CategoryProducts from "./pages/category-products/CategoryProducts";
+import Contact from "./pages/contact/Contact";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
@@ -21,6 +22,7 @@ const App = () => {
           path="/categories/:name/product/:id"
           element={<ProductDetail />}
         />
+        <Route path="/contact" exact element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
