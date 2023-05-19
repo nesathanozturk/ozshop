@@ -7,11 +7,11 @@ const FeatureCard = ({ cards = [] }) => {
         <div className="flex flex-wrap -m-4">
           {cards?.map((card) => (
             <Link
-              key={card.id}
+              key={card?.id}
               to={`/categories/${card}`}
-              className="p-4 md:w-1/3 cursor-pointer"
+              className="p-4 md:w-1/4 cursor-pointer"
             >
-              <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+              <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col hover:bg-gray-200 transition-colors">
                 <div className="flex items-center mb-3">
                   <h2 className="text-gray-900 text-lg title-font font-medium capitalize">
                     {card || "Card Title"}
@@ -26,7 +26,7 @@ const FeatureCard = ({ cards = [] }) => {
                     href="#learnmore"
                     className="mt-3 text-indigo-500 inline-flex items-center"
                   >
-                    Learn More
+                    Go to Category
                     <svg
                       fill="none"
                       stroke="currentColor"
