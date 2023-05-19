@@ -1,38 +1,34 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import Categories from "../../components/categories/Categories";
 import ProductCard from "../../components/product-card/ProductCard";
+import Title from "../../components/title/Title";
+import Loading from "../../components/loading/Loading";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch(
-        "https://fakestoreapi.com/products?limit=12"
-      );
-      const data = await response.json();
+    const getProducts = async () => {
+      const res = await axios.get("https://fakestoreapi.com/products", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.data;
       setProducts(data);
-      console.log(data);
     };
-    fetchProducts();
+    getProducts();
   }, []);
 
   return (
     <>
+      <Title title="Categories" titleAlt="All Categories" />
       <Categories />
-      <div className="flex flex-col text-center w-full mt-20">
-        <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
-          Products
-        </h2>
-        <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">
-          All Products
-        </h1>
-      </div>
-      {products.length > 0 ? (
-        <ProductCard products={products} />
-      ) : (
-        <h1>Loading...</h1>
-      )}
+      <Title title="Products" titleAlt="All Products" />
+      {products.length > 0 ? <ProductCard products={products} /> : <Loading />}
       <ProductCard />
     </>
   );
