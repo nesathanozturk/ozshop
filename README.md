@@ -11,6 +11,7 @@
 - Local Storage
 - Tailwind and Flowbite for styles
 - Icons for React Icons
+- Toastify for React Toastify
 
 ## Quick Start
 
