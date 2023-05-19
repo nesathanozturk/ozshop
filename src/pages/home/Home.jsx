@@ -26,7 +26,7 @@ const Home = () => {
         const data = await res.data;
         setProducts(data);
       } catch (e) {
-        console.error(e);
+        throw new Error(e, "Something went wrong");
       }
     };
     getProducts();
