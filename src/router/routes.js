@@ -6,6 +6,7 @@ import Login from "../pages/login/Login";
 import SignUp from "../pages/sign-up/SignUp";
 import Products from "../pages/products/Products";
 import ProductDetail from "../pages/product-detail/ProductDetail";
+import NotFound from "../pages/not-found/NotFound";
 
 const routes = [
   {
@@ -48,6 +49,10 @@ const routes = [
   {
     path: "/sign-up",
     element: <SignUp />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ];
 
