@@ -30,7 +30,7 @@ const Hero = () => {
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
           <img
             className="object-cover object-center rounded"
-            alt="hero"
+            alt="Hero"
             src="https://www.bethesdatailors.com/wp-content/uploads/2021/01/Reliable-Clothes-Store-for-All-in-NSW.jpg"
           />
         </div>

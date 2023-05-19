@@ -1,52 +1,21 @@
 import { Link } from "react-router-dom";
 import { TiTimes } from "react-icons/ti";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import useCartContext from "../../hooks/use-cart-context";
 
 const Cart = () => {
-  const [total, setTotal] = useState(0);
-
-  const carts = JSON.parse(localStorage.getItem("cart")) || [];
+  const {
+    total,
+    carts,
+    removeProduct,
+    clearCart,
+    handleChangeAmount,
+    handleProductPrice,
+  } = useCartContext();
 
   useEffect(() => {
-    const getTotal = () =>
-      carts.reduce((prev, item) => {
-        return prev + item.price * item.quantity;
-      }, 0);
-    setTotal(total);
-  }, [carts]);
-
-  if (carts.length === 0) <div>Cart is empty!</div>;
-
-  const handleInc = (id) => {
-    const updatedCart = carts.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          quantity: item.quantity + 1,
-        };
-      }
-      return item;
-    });
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-  };
-
-  const handleDec = (id) => {
-    const updatedCart = carts.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          quantity: item.quantity - 1,
-        };
-      }
-      return item;
-    });
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-  };
-
-  const removeProduct = (id) => {
-    const updatedCart = carts.filter((item) => item.id !== id);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-  };
+    handleProductPrice();
+  });
 
   return (
     <div className="container mx-auto mt-10">
@@ -88,7 +57,7 @@ const Cart = () => {
                   <svg
                     className="fill-current text-gray-600 w-3 cursor-pointer"
                     viewBox="0 0 448 512"
-                    onClick={() => handleDec(cart?.id)}
+                    onClick={() => handleChangeAmount(cart, -1)}
                   >
                     <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                   </svg>
@@ -101,7 +70,7 @@ const Cart = () => {
 
                   <svg
                     className="fill-current text-gray-600 w-3 cursor-pointer"
-                    onClick={() => handleInc(cart?.id)}
+                    onClick={() => handleChangeAmount(cart, 1)}
                     viewBox="0 0 448 512"
                   >
                     <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
@@ -139,11 +108,10 @@ const Cart = () => {
           <h1 className="font-semibold text-2xl border-b pb-8">
             Order Summary
           </h1>
-          <div className="flex justify-between mt-10 mb-5">
+          <div className="mt-10 mb-5">
             <span className="font-semibold text-sm uppercase">
               Items {carts?.length}
             </span>
-            <span className="font-semibold text-sm">{total?.toFixed(2)}$</span>
           </div>
           <div>
             <label className="font-medium inline-block mb-3 text-sm uppercase">
@@ -167,13 +135,16 @@ const Cart = () => {
               className="p-2 text-sm w-full"
             />
           </div>
-          <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">
-            Apply
+          <button
+            className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase"
+            onClick={clearCart}
+          >
+            Clear All
           </button>
           <div className="border-t mt-8">
             <div className="flex font-semibold justify-between py-6 text-sm uppercase">
               <span>Total cost</span>
-              <span>${(total + 10).toFixed(2)}</span>
+              <span>${total.toFixed(2)}</span>
             </div>
             <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
               Checkout

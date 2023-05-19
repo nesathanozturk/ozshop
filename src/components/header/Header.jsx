@@ -4,6 +4,16 @@ import { Link } from "react-router-dom";
 import { navigations } from "../../utils/data";
 
 const Header = () => {
+  const renderedNavigations = navigations.map((navigation) => (
+    <Link
+      key={navigation.name}
+      to={navigation.path}
+      className="mr-5 hover:text-gray-900"
+    >
+      {navigation.name}
+    </Link>
+  ));
+
   return (
     <header className="text-gray-600 shadow-lg">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -15,15 +25,7 @@ const Header = () => {
           <span className="ml-3 text-purple-700 text-2xl">Nesatbaba</span>
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          {navigations.map((navigation) => (
-            <Link
-              key={navigation.name}
-              to={navigation.path}
-              className="mr-5 hover:text-gray-900"
-            >
-              {navigation.name}
-            </Link>
-          ))}
+          {renderedNavigations}
         </nav>
         <Link
           to="/cart"

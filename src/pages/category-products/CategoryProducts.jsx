@@ -1,40 +1,21 @@
-import axios from "axios";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import useCartContext from "../../hooks/use-cart-context";
 import ProductCard from "../../components/product-card/ProductCard";
 import Title from "../../components/title/Title";
 import Loading from "../../components/loading/Loading";
 
 const CategoryProducts = () => {
-  const [products, setProducts] = useState([]);
-
+  const { products, getCategory } = useCartContext();
   const { name } = useParams();
 
   useEffect(() => {
-    const getCategory = async () => {
-      try {
-        const res = await axios.get(
-          `https://fakestoreapi.com/products/category/${name}`,
-          {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const data = await res.data;
-        setProducts(data);
-      } catch (err) {
-        throw new Error(err);
-      }
-    };
-    getCategory();
+    getCategory(name);
   }, []);
 
   return (
     <>
-      <Title title="Category" titleAlt={name} />
+      <Title title="Category" altTitle={name} />
       {products.length === 0 ? (
         <Loading />
       ) : (

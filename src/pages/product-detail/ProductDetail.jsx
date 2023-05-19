@@ -1,47 +1,15 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import useCartContext from "../../hooks/use-cart-context";
 import Loading from "../../components/loading/Loading";
 
 const ProductDetail = () => {
-  const [product, setProduct] = useState({});
+  const { product, getProductDetail, addProductToCart } = useCartContext();
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
-        const data = await res.data;
-        setProduct(data);
-      } catch (err) {
-        throw new Error(err);
-      }
-    };
-    fetchProduct();
+    getProductDetail(id);
   }, []);
-
-  const addProductToCart = (product) => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    const existItem = cart.find((item) => item.id === product.id);
-    if (existItem) {
-      const updatedCart = cart.map((item) => {
-        if (item.id === product.id) {
-          return {
-            ...item,
-            quantity: item.quantity + 1,
-          };
-        }
-        return item;
-      });
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-    } else {
-      localStorage.setItem(
-        "cart",
-        JSON.stringify([...cart, { ...product, quantity: 1 }])
-      );
-    }
-  };
 
   if (!Object.keys(product).length > 0) {
     return <Loading />;
