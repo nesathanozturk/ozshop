@@ -8,10 +8,8 @@ import Loading from "../../components/loading";
 const SignIn = () => {
   const { username, setUsername, email, setEmail, password, setPassword } =
     useCartContext();
-  const [signInWithEmailAndPassword, loading, error] =
+  const [signInWithEmailAndPassword, loading] =
     useSignInWithEmailAndPassword(auth);
-
-  if (error) return console.log("Error:", error);
 
   if (loading) return <Loading />;
 
@@ -21,6 +19,9 @@ const SignIn = () => {
     } else {
       signInWithEmailAndPassword(email, password);
       alert("You have successfully signed in!");
+      setUsername("");
+      setEmail("");
+      setPassword("");
     }
   };
 
@@ -50,7 +51,6 @@ const SignIn = () => {
               id="username"
               className="bg-gray-50 border border-gray-300 focus:border-purple-600 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
               placeholder="Your username"
-              required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />

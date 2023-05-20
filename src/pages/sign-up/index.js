@@ -7,19 +7,23 @@ import Loading from "../../components/loading";
 const SignUp = () => {
   const { username, setUsername, email, setEmail, password, setPassword } =
     useCartContext();
-  const [createUserWithEmailAndPassword, loading, error] =
+  const [createUserWithEmailAndPassword, loading] =
     useCreateUserWithEmailAndPassword(auth);
 
   if (loading) return <Loading />;
 
-  if (error) return console.log("Error:", error);
-
-  const handleSignUp = () => {
+  const handleSignUp = (e) => {
     if (username === "" || email === "" || password === "") {
       alert("Please fill in all fields");
+    } else if (password.length < 6) {
+      alert("Password must be at least 6 characters");
+      e.preventDefault();
     } else {
       createUserWithEmailAndPassword(email, password);
       alert("You have successfully signed up!");
+      setUsername("");
+      setEmail("");
+      setPassword("");
     }
   };
 
@@ -41,7 +45,6 @@ const SignUp = () => {
               id="username"
               className="bg-gray-50 border focus:border-purple-600 border-gray-300 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
               placeholder="Your username"
-              required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -82,6 +85,11 @@ const SignUp = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {password.length > 1 && password.length < 6 ? (
+              <p className="text-sm text-red-500">
+                Password must be at least 6 characters
+              </p>
+            ) : null}
           </div>
           <button
             type="submit"
