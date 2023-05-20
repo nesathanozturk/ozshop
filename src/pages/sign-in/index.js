@@ -8,10 +8,8 @@ import Loading from "../../components/loading";
 const SignIn = () => {
   const { username, setUsername, email, setEmail, password, setPassword } =
     useCartContext();
-  const [signInWithEmailAndPassword, loading, error] =
+  const [signInWithEmailAndPassword, loading] =
     useSignInWithEmailAndPassword(auth);
-
-  if (error) return console.log("Error:", error);
 
   if (loading) return <Loading />;
 
