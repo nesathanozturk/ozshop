@@ -96,7 +96,7 @@ const SignUp = () => {
                 htmlFor="remember"
                 className="ml-2 text-sm font-medium text-gray-800"
               >
-                I accept the
+                I accept the&nbsp;
                 <span className="text-purple-600">
                   Terms of Use & Privacy Policy
                 </span>
