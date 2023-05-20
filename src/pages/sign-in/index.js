@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
-import { auth } from "../../firebase";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useState } from "react";
+import { auth } from "../../firebase";
+import useCartContext from "../../hooks/use-cart-context";
 import Loading from "../../components/loading";
 
 const SignIn = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const { username, setUsername, email, setEmail, password, setPassword } =
+    useCartContext();
   const [signInWithEmailAndPassword, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
@@ -21,6 +19,7 @@ const SignIn = () => {
       alert("Please fill in all fields");
     } else {
       signInWithEmailAndPassword(email, password);
+      alert("You have successfully signed in!");
     }
   };
 

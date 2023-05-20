@@ -1,18 +1,15 @@
-import { Link } from "react-router-dom";
-import { auth } from "../../firebase";
+import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useState } from "react";
+import useCartContext from "../../hooks/use-cart-context";
+import { auth } from "../../firebase";
 import Loading from "../../components/loading";
 
 const SignUp = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const [createUserWithEmailAndPassword, loading, error] =
+  const { username, setUsername, email, setEmail, password, setPassword } =
+    useCartContext();
+  const [createUserWithEmailAndPassword, loading] =
     useCreateUserWithEmailAndPassword(auth);
-
-  if (error) return console.log("Error:", error);
+  const navigate = useNavigate();
 
   if (loading) return <Loading />;
 
@@ -21,6 +18,7 @@ const SignUp = () => {
       alert("Please fill in all fields");
     } else {
       createUserWithEmailAndPassword(email, password);
+      navigate("/sign-in");
     }
   };
 
@@ -98,7 +96,7 @@ const SignUp = () => {
                 htmlFor="remember"
                 className="ml-2 text-sm font-medium text-gray-800"
               >
-                I accept the{" "}
+                I accept the
                 <span className="text-purple-600">
                   Terms of Use & Privacy Policy
                 </span>

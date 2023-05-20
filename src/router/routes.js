@@ -14,7 +14,6 @@ const NotFound = lazy(() => import("../pages/not-found"));
 const routes = [
   {
     path: "/",
-    exact: true,
     element: (
       <Suspense>
         <Auth />
@@ -22,7 +21,7 @@ const routes = [
     ),
     children: [
       {
-        path: "/sign-up",
+        path: "sign-up",
         element: (
           <Suspense>
             <SignUp />
@@ -30,7 +29,7 @@ const routes = [
         ),
       },
       {
-        path: "/sign-in",
+        path: "sign-in",
         element: (
           <Suspense>
             <SignIn />
@@ -48,78 +47,79 @@ const routes = [
     ),
     children: [
       {
-        path: "/home",
+        path: "",
+        index: true,
         element: (
           <Suspense>
             <Home />
           </Suspense>
         ),
       },
+      {
+        path: "products",
+        element: (
+          <Suspense>
+            <Products />
+          </Suspense>
+        ),
+      },
+      {
+        path: "product/:id",
+        element: (
+          <Suspense>
+            <ProductDetail />
+          </Suspense>
+        ),
+      },
+      {
+        path: "products/product/:id",
+        element: (
+          <Suspense>
+            <ProductDetail />
+          </Suspense>
+        ),
+      },
+      {
+        path: "categories/:name",
+        element: (
+          <Suspense>
+            <CategoryProducts />
+          </Suspense>
+        ),
+      },
+      {
+        path: "categories/:name/product/:id",
+        element: (
+          <Suspense>
+            <ProductDetail />
+          </Suspense>
+        ),
+      },
+      {
+        path: "contact",
+        element: (
+          <Suspense>
+            <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "cart",
+        element: (
+          <Suspense>
+            <Cart />
+          </Suspense>
+        ),
+      },
+      {
+        path: "*",
+        element: (
+          <Suspense>
+            <NotFound />
+          </Suspense>
+        ),
+      },
     ],
-  },
-  {
-    path: "/products",
-    element: (
-      <Suspense>
-        <Products />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/product/:id",
-    element: (
-      <Suspense>
-        <ProductDetail />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/products/product/:id",
-    element: (
-      <Suspense>
-        <ProductDetail />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/categories/:name",
-    element: (
-      <Suspense>
-        <CategoryProducts />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/categories/:name/product/:id",
-    element: (
-      <Suspense>
-        <ProductDetail />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/contact",
-    element: (
-      <Suspense>
-        <Contact />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/cart",
-    element: (
-      <Suspense>
-        <Cart />
-      </Suspense>
-    ),
-  },
-  {
-    path: "*",
-    element: (
-      <Suspense>
-        <NotFound />
-      </Suspense>
-    ),
   },
 ];
 
