@@ -1,58 +1,107 @@
-import Cart from "../pages/cart/Cart";
-import CategoryProducts from "../pages/category-products/CategoryProducts";
-import Contact from "../pages/contact/Contact";
-import Home from "../pages/home/Home";
-import Login from "../pages/login/Login";
-import SignUp from "../pages/sign-up/SignUp";
-import Products from "../pages/products/Products";
-import ProductDetail from "../pages/product-detail/ProductDetail";
-import NotFound from "../pages/not-found/NotFound";
+import { lazy, Suspense } from "react";
+const Cart = lazy(() => import("../pages/cart/Cart"));
+const CategoryProducts = lazy(() =>
+  import("../pages/category-products/CategoryProducts")
+);
+const Contact = lazy(() => import("../pages/contact/Contact"));
+const Home = lazy(() => import("../pages/home/Home"));
+const Login = lazy(() => import("../pages/login/Login"));
+const SignUp = lazy(() => import("../pages/sign-up/SignUp"));
+const Products = lazy(() => import("../pages/products/Products"));
+const ProductDetail = lazy(() =>
+  import("../pages/product-detail/ProductDetail")
+);
+const NotFound = lazy(() => import("../pages/not-found/NotFound"));
 
 const routes = [
   {
     path: "/",
     exact: true,
-    element: <Home />,
+    element: (
+      <Suspense>
+        <Home />
+      </Suspense>
+    ),
   },
   {
     path: "/products",
-    element: <Products />,
+    element: (
+      <Suspense>
+        <Products />
+      </Suspense>
+    ),
   },
   {
     path: "/product/:id",
-    element: <ProductDetail />,
+    element: (
+      <Suspense>
+        <ProductDetail />
+      </Suspense>
+    ),
   },
   {
     path: "/products/product/:id",
-    element: <ProductDetail />,
+    element: (
+      <Suspense>
+        <ProductDetail />
+      </Suspense>
+    ),
   },
   {
     path: "/categories/:name",
-    element: <CategoryProducts />,
+    element: (
+      <Suspense>
+        <CategoryProducts />
+      </Suspense>
+    ),
   },
   {
     path: "/categories/:name/product/:id",
-    element: <ProductDetail />,
+    element: (
+      <Suspense>
+        <ProductDetail />
+      </Suspense>
+    ),
   },
   {
     path: "/contact",
-    element: <Contact />,
+    element: (
+      <Suspense>
+        <Contact />
+      </Suspense>
+    ),
   },
   {
     path: "/cart",
-    element: <Cart />,
+    element: (
+      <Suspense>
+        <Cart />
+      </Suspense>
+    ),
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <Suspense>
+        <Login />
+      </Suspense>
+    ),
   },
   {
     path: "/sign-up",
-    element: <SignUp />,
+    element: (
+      <Suspense>
+        <SignUp />
+      </Suspense>
+    ),
   },
   {
     path: "*",
-    element: <NotFound />,
+    element: (
+      <Suspense>
+        <NotFound />
+      </Suspense>
+    ),
   },
 ];
 
