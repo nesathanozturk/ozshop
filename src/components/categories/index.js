@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useCartContext from "../../hooks/use-cart-context";
-import FeatureCard from "../feature-card/FeatureCard";
-import Loading from "../loading/Loading";
+import FeatureCard from "../feature-card";
+import Loading from "../loading";
 
 const Categories = () => {
   const { categories, getCategories } = useCartContext();

@@ -1,9 +1,9 @@
 import useCartContext from "../../hooks/use-cart-context";
 import { useEffect } from "react";
-import Categories from "../../components/categories/Categories";
-import ProductCard from "../../components/product-card/ProductCard";
-import Title from "../../components/title/Title";
-import Loading from "../../components/loading/Loading";
+import Categories from "../../components/categories";
+import ProductCard from "../../components/product-card";
+import Title from "../../components/title";
+import Loading from "../../components/loading";
 
 const Products = () => {
   const { products, getAllProducts } = useCartContext();

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useState } from "react";
-import Loading from "../../components/loading/Loading";
+import Loading from "../../components/loading";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");

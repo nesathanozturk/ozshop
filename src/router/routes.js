@@ -1,19 +1,15 @@
 import { lazy, Suspense } from "react";
-const Auth = lazy(() => import("../components/auth/Auth"));
-const Main = lazy(() => import("../components/main/Main"));
-const Cart = lazy(() => import("../pages/cart/Cart"));
-const CategoryProducts = lazy(() =>
-  import("../pages/category-products/CategoryProducts")
-);
-const Contact = lazy(() => import("../pages/contact/Contact"));
-const Home = lazy(() => import("../pages/home/Home"));
-const SignIn = lazy(() => import("../pages/sign-in/SignIn"));
-const SignUp = lazy(() => import("../pages/sign-up/SignUp"));
-const Products = lazy(() => import("../pages/products/Products"));
-const ProductDetail = lazy(() =>
-  import("../pages/product-detail/ProductDetail")
-);
-const NotFound = lazy(() => import("../pages/not-found/NotFound"));
+const Auth = lazy(() => import("../pages/auth"));
+const Main = lazy(() => import("../pages/main"));
+const Cart = lazy(() => import("../pages/cart"));
+const CategoryProducts = lazy(() => import("../pages/category-products"));
+const Contact = lazy(() => import("../pages/contact"));
+const Home = lazy(() => import("../pages/home"));
+const SignIn = lazy(() => import("../pages/sign-in"));
+const SignUp = lazy(() => import("../pages/sign-up"));
+const Products = lazy(() => import("../pages/products"));
+const ProductDetail = lazy(() => import("../pages/product-detail"));
+const NotFound = lazy(() => import("../pages/not-found"));
 
 const routes = [
   {

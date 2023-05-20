@@ -2,7 +2,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useCartContext from "../../hooks/use-cart-context";
-import Loading from "../../components/loading/Loading";
+import Loading from "../../components/loading";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
