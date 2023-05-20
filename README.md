@@ -5,10 +5,11 @@
 ## 🧰 Technologies Used
 
 - React JS
-- React Router Dom
+- React Router
 - Context API
 - Axios
 - Local Storage
+- Firebase
 - Tailwind and Flowbite for styles
 - Icons for React Icons
 - Toastify for React Toastify
