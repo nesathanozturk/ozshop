@@ -8,8 +8,10 @@ import Loading from "../../components/loading";
 const SignIn = () => {
   const { username, setUsername, email, setEmail, password, setPassword } =
     useCartContext();
-  const [signInWithEmailAndPassword, loading] =
+  const [signInWithEmailAndPassword, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  if (error) return console.log("Error:", error);
 
   if (loading) return <Loading />;
 
@@ -124,7 +126,7 @@ const SignIn = () => {
               to="/sign-up"
               className="text-purple-700 hover:underline ml-1"
             >
-              Create account
+              Create account!
             </Link>
           </div>
         </form>

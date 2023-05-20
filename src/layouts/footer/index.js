@@ -175,7 +175,7 @@ const Footer = () => {
           <div>
             <div className="container mx-auto py-6 px-5 flex justify-center gap-3 items-center flex-wrap flex-col">
               <p className="text-gray-500 text-base text-center sm:text-left">
-                © 2023 Nesatbaba.com. All rights reserved. -
+                © 2023 Ozshop. All rights reserved. -
                 <a
                   href="https://instagram.com/nesathanozturk"
                   rel="noopener noreferrer"

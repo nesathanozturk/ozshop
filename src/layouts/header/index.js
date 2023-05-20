@@ -40,7 +40,7 @@ const Header = () => {
           className="flex font-medium items-center text-gray-900 md:mb-0"
         >
           <FaShoppingBag className="text-purple-700" size={30} />
-          <span className="ml-3 text-purple-700 text-2xl">Nesatbaba</span>
+          <span className="ml-3 text-purple-700 text-2xl">Ozshop</span>
         </Link>
         {searchRoute ? null : (
           <>

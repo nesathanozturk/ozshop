@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import useCartContext from "../../hooks/use-cart-context";
 import { auth } from "../../firebase";
@@ -7,18 +7,19 @@ import Loading from "../../components/loading";
 const SignUp = () => {
   const { username, setUsername, email, setEmail, password, setPassword } =
     useCartContext();
-  const [createUserWithEmailAndPassword, loading] =
+  const [createUserWithEmailAndPassword, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-  const navigate = useNavigate();
 
   if (loading) return <Loading />;
+
+  if (error) return console.log("Error:", error);
 
   const handleSignUp = () => {
     if (username === "" || email === "" || password === "") {
       alert("Please fill in all fields");
     } else {
       createUserWithEmailAndPassword(email, password);
-      navigate("/sign-in");
+      alert("You have successfully signed up!");
     }
   };
 
@@ -77,6 +78,7 @@ const SignUp = () => {
               placeholder="Your password"
               className="bg-gray-50 border focus:border-purple-600 border-gray-300 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
               required
+              max={6}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
