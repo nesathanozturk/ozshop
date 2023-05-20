@@ -7,7 +7,7 @@ const CategoryProducts = lazy(() =>
 );
 const Contact = lazy(() => import("../pages/contact/Contact"));
 const Home = lazy(() => import("../pages/home/Home"));
-const Login = lazy(() => import("../pages/login/Login"));
+const SignIn = lazy(() => import("../pages/sign-in/SignIn"));
 const SignUp = lazy(() => import("../pages/sign-up/SignUp"));
 const Products = lazy(() => import("../pages/products/Products"));
 const ProductDetail = lazy(() =>
@@ -34,10 +34,10 @@ const routes = [
         ),
       },
       {
-        path: "/login",
+        path: "/sign-in",
         element: (
           <Suspense>
-            <Login />
+            <SignIn />
           </Suspense>
         ),
       },

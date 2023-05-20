@@ -4,7 +4,7 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useState } from "react";
 import Loading from "../../components/loading/Loading";
 
-const Login = () => {
+const SignIn = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,16 +25,14 @@ const Login = () => {
   };
 
   return (
-    <>
-      <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <form class="space-y-6" action="#">
-          <h5 class="text-xl font-medium text-gray-900 dark:text-white text-center">
-            Log in
-          </h5>
+    <div className="flex justify-center items-center my-10">
+      <div className="w-full max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow-lg sm:p-6 md:p-8">
+        <form className="space-y-6" action="#">
+          <h5 className="text-3xl font-semibold text-gray-900">Sign-In</h5>
           <div>
             <label
-              for="username"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              htmlFor="username"
+              className="block mb-2 text-base font-semibold text-gray-900"
             >
               Username
             </label>
@@ -42,7 +40,7 @@ const Login = () => {
               type="username"
               name="username"
               id="username"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
               placeholder="Your username"
               required
               value={username}
@@ -51,8 +49,8 @@ const Login = () => {
           </div>
           <div>
             <label
-              for="email"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              htmlFor="email"
+              className="block mb-2 text-base font-semibold text-gray-900"
             >
               Email
             </label>
@@ -60,7 +58,7 @@ const Login = () => {
               type="email"
               name="email"
               id="email"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
               placeholder="Your email"
               required
               value={email}
@@ -69,8 +67,8 @@ const Login = () => {
           </div>
           <div>
             <label
-              for="password"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              htmlFor="password"
+              className="block mb-2 text-base font-semibold text-gray-900"
             >
               Password
             </label>
@@ -79,26 +77,26 @@ const Login = () => {
               name="password"
               id="password"
               placeholder="Your password"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div class="flex items-start">
-            <div class="flex items-start">
-              <div class="flex items-center h-5">
+          <div className="flex items-start">
+            <div className="flex items-start">
+              <div className="flex items-center h-5">
                 <input
                   id="remember"
                   type="checkbox"
                   value=""
-                  class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                  className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                   required
                 />
               </div>
               <label
-                for="remember"
-                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                htmlFor="remember"
+                className="ml-2 text-sm font-medium text-gray-800"
               >
                 Remember me
               </label>
@@ -106,24 +104,24 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="w-full text-white bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-3 text-center transition-colors"
             onClick={handleLogin}
           >
-            Log in
+            Sign-In
           </button>
-          <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-            Not registered?
+          <div className="text-sm font-medium text-gray-500 text-right">
+            Don't have an account?
             <Link
               to="/sign-up"
-              class="text-blue-700 hover:underline dark:text-blue-500"
+              className="text-purple-700 hover:underline ml-1"
             >
               Create account
             </Link>
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Login;
+export default SignIn;
