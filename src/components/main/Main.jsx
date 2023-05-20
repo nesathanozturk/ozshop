@@ -4,13 +4,13 @@ import { auth } from "../../firebase";
 import Loading from "../loading/Loading";
 
 const Main = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, isLoading, error] = useAuthState(auth);
 
   if (error) return console.log("Error:", error);
 
-  if (loading) return <Loading />;
+  if (isLoading) return <Loading />;
 
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) <Navigate to="/sign-in" replace />;
 
   return <Outlet />;
 };

@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
-import Auth from "../components/auth/Auth";
-import Main from "../components/main/Main";
+const Auth = lazy(() => import("../components/auth/Auth"));
+const Main = lazy(() => import("../components/main/Main"));
 const Cart = lazy(() => import("../pages/cart/Cart"));
 const CategoryProducts = lazy(() =>
   import("../pages/category-products/CategoryProducts")
@@ -45,7 +45,6 @@ const routes = [
   },
   {
     path: "/",
-    exact: true,
     element: (
       <Suspense>
         <Main />
@@ -53,7 +52,7 @@ const routes = [
     ),
     children: [
       {
-        path: "/",
+        path: "/home",
         element: (
           <Suspense>
             <Home />
