@@ -40,7 +40,7 @@ const SignIn = () => {
               type="username"
               name="username"
               id="username"
-              className="bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
+              className="bg-gray-50 border border-gray-300 focus:border-purple-600 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
               placeholder="Your username"
               required
               value={username}
@@ -58,7 +58,7 @@ const SignIn = () => {
               type="email"
               name="email"
               id="email"
-              className="bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
+              className="bg-gray-50 border border-gray-300 focus:border-purple-600 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
               placeholder="Your email"
               required
               value={email}
@@ -77,7 +77,7 @@ const SignIn = () => {
               name="password"
               id="password"
               placeholder="Your password"
-              className="bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
+              className="bg-gray-50 border border-gray-300 focus:border-purple-600 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -109,7 +109,7 @@ const SignIn = () => {
           >
             Sign-In
           </button>
-          <div className="text-sm font-medium text-gray-500 text-right">
+          <div className="text-sm font-medium text-gray-500">
             Don't have an account?
             <Link
               to="/sign-up"
