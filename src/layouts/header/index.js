@@ -3,13 +3,11 @@ import { FiShoppingCart } from "react-icons/fi";
 import { Link, useMatch } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
 import { useState } from "react";
-import { navigations } from "../../utils/data";
 import { auth } from "../../firebase";
-import useCartContext from "../../hooks/use-cart-context";
+import { navigations } from "../../utils/data";
 import avatar from "../../assets/images/user.png";
 
 const Header = () => {
-  const { username, email } = useCartContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [user] = useAuthState(auth);
@@ -68,31 +66,6 @@ const Header = () => {
                   dropdown ? "block" : "hidden"
                 }`}
               >
-                <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                  <div>{username}</div>
-                  <div className="font-medium truncate">{email}</div>
-                </div>
-                <ul
-                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="dropdownUserAvatarButton"
-                >
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Settings
-                    </a>
-                  </li>
-                </ul>
                 <div className="py-2">
                   <a
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer"
@@ -156,25 +129,6 @@ const Header = () => {
                   dropdown ? "md:block" : "hidden"
                 }`}
               >
-                <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                  <div>{username}</div>
-                  <div className="font-medium truncate">{email}</div>
-                </div>
-                <ul
-                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="dropdownUserAvatarButton"
-                >
-                  <li>
-                    <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                      Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                      Settings
-                    </a>
-                  </li>
-                </ul>
                 <div className="py-2">
                   <a
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer"
