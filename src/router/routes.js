@@ -1,4 +1,6 @@
 import { lazy, Suspense } from "react";
+import Auth from "../components/auth/Auth";
+import Main from "../components/main/Main";
 const Cart = lazy(() => import("../pages/cart/Cart"));
 const CategoryProducts = lazy(() =>
   import("../pages/category-products/CategoryProducts")
@@ -19,9 +21,46 @@ const routes = [
     exact: true,
     element: (
       <Suspense>
-        <Home />
+        <Auth />
       </Suspense>
     ),
+    children: [
+      {
+        path: "/sign-up",
+        element: (
+          <Suspense>
+            <SignUp />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <Suspense>
+            <Login />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+  {
+    path: "/",
+    exact: true,
+    element: (
+      <Suspense>
+        <Main />
+      </Suspense>
+    ),
+    children: [
+      {
+        path: "/",
+        element: (
+          <Suspense>
+            <Home />
+          </Suspense>
+        ),
+      },
+    ],
   },
   {
     path: "/products",
@@ -76,22 +115,6 @@ const routes = [
     element: (
       <Suspense>
         <Cart />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/login",
-    element: (
-      <Suspense>
-        <Login />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/sign-up",
-    element: (
-      <Suspense>
-        <SignUp />
       </Suspense>
     ),
   },
