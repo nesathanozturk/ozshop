@@ -34,7 +34,7 @@ const Header = () => {
 
   return (
     <nav className="shadow-lg text-gray-600 relative">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-5">
+      <div className="max-w-screen-xl flex flex-wrap items-center max-xs:justify-center justify-between mx-auto p-5">
         <Link
           to="/"
           className="flex font-medium items-center text-gray-900 md:mb-0"
@@ -62,7 +62,7 @@ const Header = () => {
               </button>
               <div
                 id="dropdownAvatar"
-                className={`z-10 md:hidden bg-white divide-y absolute top-24 right-20 divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 ${
+                className={`z-10 md:hidden bg-white divide-y absolute max-xs:top-28 max-xs:left-4 xs:top-[4.8rem] xs:right-[4.5rem] divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 ${
                   dropdown ? "block" : "hidden"
                 }`}
               >
@@ -125,7 +125,7 @@ const Header = () => {
               </button>
               <div
                 id="dropdownAvatar"
-                className={`z-10 hidden bg-white divide-y absolute top-20 right-5 divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 ${
+                className={`z-10 hidden bg-white divide-y absolute top-[4.3rem] right-5 divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 ${
                   dropdown ? "md:block" : "hidden"
                 }`}
               >
