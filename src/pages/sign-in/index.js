@@ -18,7 +18,6 @@ const SignIn = () => {
       alert("Please fill in all fields");
     } else {
       signInWithEmailAndPassword(email, password);
-      alert("You have successfully signed in!");
       setUsername("");
       setEmail("");
       setPassword("");
