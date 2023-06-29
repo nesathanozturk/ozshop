@@ -29,7 +29,6 @@ const FavoriteProductCard = ({ favorites }) => {
         </div>
         <Link
           to={`favorite/${favorites?.id}`}
-          type="button"
           className="w-full text-white bg-purple-700 hover:bg-purple-800 focus:border-none focus:outline-none font-medium rounded-md text-sm mt-5 px-5 py-3 text-center inline-flex justify-center items-center mr-2 transition-all"
         >
           <svg
