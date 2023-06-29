@@ -47,7 +47,7 @@ const Header = () => {
             <div className={`items-center gap-1 ${user ? "flex" : "hidden"}`}>
               <Link
                 to="/cart"
-                className="inline md:hidden mb-3 mr-2 text-white bg-indigo-500 border-1 border-indigo-600 py-2 px-3 focus:outline-none hover:bg-indigo-700 rounded mt-4 md:mt-0 transition-colors"
+                className="inline md:hidden mb-3 mr-2 text-white bg-indigo-500 border-1 border-indigo-600 py-2 px-3 focus:outline-none hover:bg-indigo-700 rounded-full mt-4 md:mt-0 transition-colors"
               >
                 <FiShoppingCart size={18} />
               </Link>
@@ -58,7 +58,7 @@ const Header = () => {
                 type="button"
                 onClick={() => setDropdown(!dropdown)}
               >
-                <img className="w-8 h-8 rounded-full" src={avatar} alt="User" />
+                <img className="w-7 h-7" src={avatar} alt="User" />
               </button>
               <div
                 id="dropdownAvatar"
@@ -109,10 +109,9 @@ const Header = () => {
               </ul>
               <Link
                 to="/cart"
-                className="hidden md:inline-flex items-center gap-2 text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0 transition-colors"
+                className="hidden md:inline mr-1 hover:text-gray-800 transition-colors"
               >
-                Cart
-                <FiShoppingCart size={20} />
+                Your Cart
               </Link>
               <button
                 id="dropdownUserAvatarButton"
@@ -121,7 +120,7 @@ const Header = () => {
                 type="button"
                 onClick={() => setDropdown(!dropdown)}
               >
-                <img className="w-8 h-8 rounded-full" src={avatar} alt="User" />
+                <img className="w-8 h-8" src={avatar} alt="User" />
               </button>
               <div
                 id="dropdownAvatar"
