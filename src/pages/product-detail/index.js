@@ -5,6 +5,7 @@ import useCartContext from "../../hooks/use-cart-context";
 import Loading from "../../components/loading";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import noImage from "../../assets/images/no-image.png";
 
 const ProductDetail = () => {
   const { product, getProductDetail, addProductToCart, addProductToFavorites } =
@@ -33,78 +34,88 @@ const ProductDetail = () => {
           <div className="container px-5 py-24 mx-auto">
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <img
-                src={product?.image}
+                src={!product?.image ? noImage : product?.image}
                 alt={product?.title}
-                className="lg:w-1/2 w-full lg:h-auto max-h-[600px] h-64 object-center rounded object-contain"
+                className="lg:w-1/2 w-full lg:h-auto max-h-[400px] h-64 object-center rounded object-contain"
               />
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h2 className="text-sm title-font text-gray-500 tracking-widest uppercase">
-                  {product?.category}
+                  {!product?.category
+                    ? "Category loading..."
+                    : product?.category}
                 </h2>
                 <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                  {product?.title}
+                  {!product?.title ? "Item title loading..." : product?.title}
                 </h1>
-                <div className="flex mb-4 mt-3">
-                  <span className="flex items-center">
-                    <svg
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 text-indigo-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 text-indigo-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 text-indigo-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg
-                      fill="currentColor"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 text-indigo-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4 text-indigo-500"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <span className="text-gray-600 ml-3">4 Reviews</span>
-                  </span>
-                </div>
-                <p className="leading-relaxed">{product?.description}</p>
+                {!product.rating ? (
+                  <p className="leading-relaxe">Product rating loading...</p>
+                ) : (
+                  <div className="flex mb-4 mt-3">
+                    <span className="flex items-center">
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-indigo-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-indigo-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-indigo-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-indigo-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="w-4 h-4 text-indigo-500"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                      </svg>
+                      <span className="text-gray-600 ml-3">4 Reviews</span>
+                    </span>
+                  </div>
+                )}
+                <p className="leading-relaxed">
+                  {!product.description
+                    ? "Product description loading..."
+                    : product?.description}
+                </p>
                 {product?.category === "men's clothing" ||
                 product?.category === "women's clothing" ? (
                   <div className="flex mt-2 items-center pb-5 border-b-2 border-gray-100 mb-5">
@@ -144,31 +155,35 @@ const ProductDetail = () => {
                 )}
                 <div className="flex gap-4">
                   <span className="title-font font-medium text-2xl text-gray-900">
-                    ${product?.price}
+                    {!product.price ? "Price loading..." : `$${product?.price}`}
                   </span>
-                  <div className="flex justify-between items-center">
-                    <button
-                      className="flex ml-auto text-white bg-indigo-500 border-0 text-sm md:text-base py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded transition-all"
-                      onClick={() => addProductToCart(product)}
-                    >
-                      Add to cart
-                    </button>
-                    <button
-                      onClick={() => addProductToFavorites(product)}
-                      className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4 hover:bg-gray-300 transition-all"
-                    >
-                      <svg
-                        fill="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-5 h-5"
-                        viewBox="0 0 24 24"
+                  {!product.title ? (
+                    <></>
+                  ) : (
+                    <div className="flex justify-between items-center">
+                      <button
+                        className="flex ml-auto text-white bg-indigo-500 border-0 text-sm md:text-base py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded transition-all"
+                        onClick={() => addProductToCart(product)}
                       >
-                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                      </svg>
-                    </button>
-                  </div>
+                        Add to cart
+                      </button>
+                      <button
+                        onClick={() => addProductToFavorites(product)}
+                        className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4 hover:bg-gray-300 transition-all"
+                      >
+                        <svg
+                          fill="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          className="w-5 h-5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
