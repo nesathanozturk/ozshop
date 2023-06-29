@@ -109,7 +109,7 @@ const Header = () => {
               </ul>
               <Link
                 to="/cart"
-                className="hidden md:inline mr-1 hover:text-gray-800 transition-colors"
+                className="hidden md:inline mr-1 font-medium hover:text-gray-800 transition-colors"
               >
                 Your Cart
               </Link>
