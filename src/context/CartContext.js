@@ -8,81 +8,19 @@ function Provider({ children }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [products, setProducts] = useState([]);
   const [product, setProduct] = useState({});
   const [categories, setCategories] = useState([]);
   const [carts, setCarts] = useState([]);
   const [total, setTotal] = useState(0);
 
-  // Get Products
-  const getProducts = async () => {
-    try {
-      const res = await axios.get("https://fakestoreapi.com/products?limit=7", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.data;
-      setProducts(data);
-    } catch (e) {
-      throw new Error(e, "Something went wrong");
-    }
-  };
-
-  // Get All Products
-  const getAllProducts = async () => {
-    try {
-      const res = await axios.get("https://fakestoreapi.com/products", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.data;
-      setProducts(data);
-    } catch (e) {
-      throw new Error(e, "Something went wrong");
-    }
-  };
-
   // Categories
   const getCategories = async () => {
     try {
       const response = await axios.get(
-        "https://fakestoreapi.com/products/categories",
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }
+        "https://fakestoreapi.com/products/categories"
       );
       const data = await response.data;
       setCategories(data);
-    } catch (e) {
-      throw new Error(e, "Something went wrong");
-    }
-  };
-
-  // Category Products
-  const getCategory = async (name) => {
-    try {
-      const res = await axios.get(
-        `https://fakestoreapi.com/products/category/${name}`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const data = await res.data;
-      setProducts(data);
     } catch (e) {
       throw new Error(e, "Something went wrong");
     }
@@ -176,13 +114,9 @@ function Provider({ children }) {
     setEmail,
     password,
     setPassword,
-    products,
     product,
     categories,
-    getAllProducts,
-    getProducts,
     getCategories,
-    getCategory,
     getProductDetail,
     addProductToCart,
     carts,

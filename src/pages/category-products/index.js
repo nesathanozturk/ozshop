@@ -1,26 +1,20 @@
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import useCartContext from "../../hooks/use-cart-context";
+import useFetch from "../../hooks/use-fetch";
 import ProductCard from "../../components/product-card";
 import Title from "../../components/title";
 import Loading from "../../components/loading";
 
 const CategoryProducts = () => {
-  const { products, getCategory } = useCartContext();
   const { name } = useParams();
 
-  useEffect(() => {
-    getCategory(name);
-  }, []);
+  const { apiData } = useFetch(
+    `https://fakestoreapi.com/products/category/${name}`
+  );
 
   return (
     <>
       <Title title="Category" altTitle={name} />
-      {products.length === 0 ? (
-        <Loading />
-      ) : (
-        <ProductCard products={products} />
-      )}
+      {apiData.length === 0 ? <Loading /> : <ProductCard products={apiData} />}
     </>
   );
 };

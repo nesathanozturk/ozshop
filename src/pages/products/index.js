@@ -1,23 +1,18 @@
-import useCartContext from "../../hooks/use-cart-context";
-import { useEffect } from "react";
+import useFetch from "../../hooks/use-fetch";
 import Categories from "../../components/categories";
 import ProductCard from "../../components/product-card";
 import Title from "../../components/title";
 import Loading from "../../components/loading";
 
 const Products = () => {
-  const { products, getAllProducts } = useCartContext();
-
-  useEffect(() => {
-    getAllProducts();
-  }, []);
+  const { apiData } = useFetch("https://fakestoreapi.com/products");
 
   return (
     <>
       <Title title="Categories" altTitle="All Categories" />
       <Categories />
       <Title title="Products" altTitle="All Products" />
-      {products.length > 0 ? <ProductCard products={products} /> : <Loading />}
+      {apiData.length > 0 ? <ProductCard products={apiData} /> : <Loading />}
       <ProductCard />
     </>
   );
