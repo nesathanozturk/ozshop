@@ -47,7 +47,7 @@ const FavoriteProductCard = ({ favorites = [] }) => {
       </Link>
       <span
         className="absolute top-2 right-2 text-xl text-red-600 hover:text-red-700 transition-colors lg:text-3xl"
-        onClick={() => removeProductAtFavorites(favorite)}
+        onClick={() => removeProductAtFavorites(favorite.id)}
       >
         <IoMdRemove />
       </span>
