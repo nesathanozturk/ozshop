@@ -65,19 +65,6 @@ const Contact = () => {
                 Send
               </button>
             </div>
-            <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-              <a
-                href="mailto:nesathanozturk061@gmail.com"
-                className="text-indigo-500"
-              >
-                nesathanozturk061@gmail.com
-              </a>
-              <p className="leading-normal my-5">
-                49 Smith St.
-                <br />
-                Saint Cloud, MN 56301
-              </p>
-            </div>
           </div>
         </div>
       </div>
