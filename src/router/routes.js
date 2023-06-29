@@ -5,6 +5,9 @@ const Cart = lazy(() => import("../pages/cart"));
 const CategoryProducts = lazy(() => import("../pages/category-products"));
 const Contact = lazy(() => import("../pages/contact"));
 const Favorites = lazy(() => import("../pages/favorites"));
+const FavoriteProductDetail = lazy(() =>
+  import("../pages/favorite-product-detail")
+);
 const Home = lazy(() => import("../pages/home"));
 const SignIn = lazy(() => import("../pages/sign-in"));
 const SignUp = lazy(() => import("../pages/sign-up"));
@@ -89,10 +92,10 @@ const routes = [
         ),
       },
       {
-        path: "favorites/product/:id",
+        path: "favorites/favorite/:id",
         element: (
           <Suspense>
-            <ProductDetail />
+            <FavoriteProductDetail />
           </Suspense>
         ),
       },

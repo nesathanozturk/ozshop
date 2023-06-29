@@ -87,7 +87,7 @@ function Provider({ children }) {
     addedProductAtFavoritesNotify();
   };
 
-  const removeProductFromFavorites = (id) => {
+  const removeProductAtFavorites = (id) => {
     const updatedFavorites = favorites.filter((item) => item.id !== id);
     setFavorites(updatedFavorites);
     removedProductAtFavoritesNotify();
@@ -140,7 +140,7 @@ function Provider({ children }) {
     getProductDetail,
     addProductToCart,
     addProductToFavorites,
-    removeProductFromFavorites,
+    removeProductAtFavorites,
     carts,
     total,
     setTotal,

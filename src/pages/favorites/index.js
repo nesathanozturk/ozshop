@@ -1,6 +1,6 @@
 import { RiErrorWarningFill } from "react-icons/ri";
 import useCartContext from "../../hooks/use-cart-context";
-import ProductCard from "../../components/product-card";
+import FavoriteProductCard from "../../components/favorite-product-card";
 import Title from "../../components/title";
 
 const Favorites = () => {
@@ -12,7 +12,11 @@ const Favorites = () => {
         <>
           <Title title="Favorites" altTitle="Your Favorite Products" />
           {favorites.map((favorite) => (
-            <ProductCard key={favorite.id} products={favorites} />
+            <div className="p-8">
+              <div className="flex md:gap-10 flex-wrap">
+                <FavoriteProductCard favorites={favorites} />
+              </div>
+            </div>
           ))}
         </>
       ) : (

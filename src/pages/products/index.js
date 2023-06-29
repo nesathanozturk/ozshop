@@ -12,8 +12,15 @@ const Products = () => {
       <Title title="Categories" altTitle="All Categories" />
       <Categories />
       <Title title="Products" altTitle="All Products" />
-      {apiData.length > 0 ? <ProductCard products={apiData} /> : <Loading />}
-      <ProductCard />
+      {apiData.length > 0 ? (
+        <div className="py-8">
+          <div className="flex md:gap-10 md:justify-center flex-wrap">
+            <ProductCard products={apiData} />
+          </div>
+        </div>
+      ) : (
+        <Loading />
+      )}
     </>
   );
 };
