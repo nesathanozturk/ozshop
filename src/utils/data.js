@@ -8,11 +8,15 @@ export const navigations = [
     path: "/products",
   },
   {
+    name: "Favorites",
+    path: "/favorites",
+  },
+  {
     name: "Contact",
     path: "/contact",
   },
   {
-    name: "Your Cart",
+    name: "Cart",
     path: "/cart",
   },
 ];
