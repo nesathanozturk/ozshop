@@ -44,7 +44,7 @@ const FavoriteProductCard = ({ favorites }) => {
           Buy now
         </Link>
         <span
-          className="absolute top-2 right-2 text-lg text-red-700 hover:text-red-800 transition-colors lg:text-3xl"
+          className="absolute top-2 right-2 text-xl text-red-700 hover:text-red-800 transition-colors lg:text-3xl"
           onClick={() => removeProductAtFavorites(favorites?.id)}
         >
           <TiDelete />
