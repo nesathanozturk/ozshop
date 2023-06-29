@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IoMdRemove } from "react-icons/io";
+import { TiDelete } from "react-icons/ti";
 import useCartContext from "../../hooks/use-cart-context";
 
 const FavoriteProductCard = ({ favorites }) => {
@@ -44,10 +44,10 @@ const FavoriteProductCard = ({ favorites }) => {
           Buy now
         </Link>
         <span
-          className="absolute top-2 right-2 text-xl text-red-600 hover:text-red-700 transition-colors lg:text-3xl"
+          className="absolute top-2 right-2 text-lg text-red-700 hover:text-red-800 transition-colors lg:text-3xl"
           onClick={() => removeProductAtFavorites(favorites?.id)}
         >
-          <IoMdRemove />
+          <TiDelete />
         </span>
       </div>
     </>
