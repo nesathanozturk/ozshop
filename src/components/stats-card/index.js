@@ -4,7 +4,7 @@ const StatsCard = () => {
       <div className="container mx-auto px-5 mt-10">
         <div className="flex flex-col text-center w-full mb-10">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-            Statistics of our Company
+            Statistics Of Our Company
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt autem
