@@ -7,10 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 const ProductDetail = () => {
-  const { product, getProductDetail, category, addProductToCart } =
+  const { product, getProductDetail, addProductToCart, addProductToFavorites } =
     useCartContext();
 
-  console.log(category);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -154,7 +153,10 @@ const ProductDetail = () => {
                     >
                       Add to cart
                     </button>
-                    <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4 hover:bg-gray-300 transition-all">
+                    <button
+                      onClick={() => addProductToFavorites(product)}
+                      className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4 hover:bg-gray-300 transition-all"
+                    >
                       <svg
                         fill="currentColor"
                         strokeLinecap="round"

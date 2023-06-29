@@ -12,6 +12,7 @@ function Provider({ children }) {
   const [categories, setCategories] = useState([]);
   const [carts, setCarts] = useState([]);
   const [total, setTotal] = useState(0);
+  const [favorites, setFavorites] = useState([]);
 
   // Categories
   const getCategories = async () => {
@@ -51,6 +52,12 @@ function Provider({ children }) {
 
   const addedProductAtCartNotify = () => toast("Product added to cart");
 
+  const addedProductAtFavoritesNotify = () =>
+    toast("Product added to favorites");
+
+  const removedProductAtFavoritesNotify = () =>
+    toast("Product removed from favorites");
+
   const removedProductAtCartNotify = () => toast("Product removed from cart");
 
   const clearCartNotify = () => toast("You have cleared your cart");
@@ -72,6 +79,18 @@ function Provider({ children }) {
       saveToLocalStorage(carts);
     }
     addedProductAtCartNotify();
+  };
+
+  const addProductToFavorites = (product) => {
+    const updatedFavorites = [...favorites, product];
+    setFavorites(updatedFavorites);
+    addedProductAtFavoritesNotify();
+  };
+
+  const removeProductFromFavorites = (id) => {
+    const updatedFavorites = favorites.filter((item) => item.id !== id);
+    setFavorites(updatedFavorites);
+    removedProductAtFavoritesNotify();
   };
 
   const removeProduct = (id) => {
@@ -117,8 +136,11 @@ function Provider({ children }) {
     product,
     categories,
     getCategories,
+    favorites,
     getProductDetail,
     addProductToCart,
+    addProductToFavorites,
+    removeProductFromFavorites,
     carts,
     total,
     setTotal,
