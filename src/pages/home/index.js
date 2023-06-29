@@ -16,8 +16,17 @@ const Home = () => {
       <Title title="Categories" altTitle="All Categories" />
       <Categories />
       <Title title="Products" altTitle="Most Popular Products" />
-      {apiData?.length > 0 ? <ProductCard products={apiData} /> : <Loading />}
-      <ProductCard />
+      {apiData?.length > 0 ? (
+        <div className="py-8">
+          <div className="flex md:gap-10 md:justify-center flex-wrap">
+            {apiData?.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <Loading />
+      )}
       <StatsCard />
       <Testimonial />
     </>
