@@ -9,10 +9,10 @@ function Provider({ children }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [product, setProduct] = useState({});
+  const [favorites, setFavorites] = useState([]);
   const [categories, setCategories] = useState([]);
   const [carts, setCarts] = useState([]);
   const [total, setTotal] = useState(0);
-  const [favorites, setFavorites] = useState([]);
 
   // Categories
   const getCategories = async () => {
@@ -40,23 +40,26 @@ function Provider({ children }) {
 
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem("cart"));
+    const favoriteItems = JSON.parse(localStorage.getItem("favorite"));
 
-    if (cartItems) {
+    if (cartItems && favoriteItems) {
       setCarts(cartItems);
+      setFavorites(favoriteItems);
     }
   }, []);
 
-  const saveToLocalStorage = (items) => {
+  const saveCartToLocalStorage = (items) => {
     localStorage.setItem("cart", JSON.stringify(items));
+  };
+
+  const saveFavoritesToLocalStorage = (items) => {
+    localStorage.setItem("favorite", JSON.stringify(items));
   };
 
   const addedProductAtCartNotify = () => toast("Product added to cart");
 
   const addedProductAtFavoritesNotify = () =>
     toast("Product added to favorites");
-
-  const removedProductAtFavoritesNotify = () =>
-    toast("Product removed from favorites");
 
   const removedProductAtCartNotify = () => toast("Product removed from cart");
 
@@ -73,41 +76,42 @@ function Provider({ children }) {
             : item
         )
       );
-      saveToLocalStorage(carts);
+      saveCartToLocalStorage(carts);
     } else {
       setCarts([...carts, { ...product, quantity: 1 }]);
-      saveToLocalStorage(carts);
+      saveCartToLocalStorage(carts);
     }
     addedProductAtCartNotify();
-  };
-
-  const addProductToFavorites = (product) => {
-    const updatedFavorites = [...favorites, product];
-    setFavorites(updatedFavorites);
-    addedProductAtFavoritesNotify();
-  };
-
-  const removeProductAtFavorites = (id) => {
-    const updatedFavorites = favorites.filter((item) => item.id !== id);
-    setFavorites(updatedFavorites);
-    removedProductAtFavoritesNotify();
   };
 
   const removeProduct = (id) => {
     const updatedCart = carts.filter((item) => item.id !== id);
     setCarts(updatedCart);
-    saveToLocalStorage(updatedCart);
+    saveCartToLocalStorage(updatedCart);
     removedProductAtCartNotify();
   };
 
   const clearCart = () => {
     const updatedCart = carts.filter((item) => item.id && !item.id);
     setCarts(updatedCart);
-    saveToLocalStorage(updatedCart);
+    saveCartToLocalStorage(updatedCart);
 
     if (carts.length > 0) {
       clearCartNotify();
     }
+  };
+
+  const addProductToFavorites = (product) => {
+    const updatedFavorites = [...favorites, product];
+    setFavorites(updatedFavorites);
+    saveFavoritesToLocalStorage(updatedFavorites);
+    addedProductAtFavoritesNotify();
+  };
+
+  const removeProductAtFavorites = (id) => {
+    const updatedFavorites = favorites.filter((item) => item.id !== id);
+    setFavorites(updatedFavorites);
+    saveFavoritesToLocalStorage(updatedFavorites);
   };
 
   const handleChangeAmount = (product, d) => {
@@ -116,7 +120,7 @@ function Provider({ children }) {
 
     if (carts[i].quantity === 0) carts[i].quantity = 1;
     setCarts([...carts]);
-    saveToLocalStorage([...carts]);
+    saveCartToLocalStorage([...carts]);
   };
 
   const handleProductPrice = () => {

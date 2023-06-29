@@ -12,7 +12,7 @@ const Categories = () => {
 
   return (
     <>
-      {categories.length === 0 ? (
+      {categories?.length === 0 ? (
         <Loading />
       ) : (
         <FeatureCard cards={categories} />
