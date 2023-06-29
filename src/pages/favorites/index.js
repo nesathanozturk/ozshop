@@ -1,4 +1,6 @@
 import { RiErrorWarningFill } from "react-icons/ri";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import useCartContext from "../../hooks/use-cart-context";
 import FavoriteProductCard from "../../components/favorite-product-card";
 import Title from "../../components/title";
@@ -25,6 +27,18 @@ const Favorites = () => {
           </p>
         </div>
       )}
+      <ToastContainer
+        position="top-left"
+        autoClose={1500}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 };

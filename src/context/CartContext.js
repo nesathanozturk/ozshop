@@ -14,7 +14,6 @@ function Provider({ children }) {
   const [carts, setCarts] = useState([]);
   const [total, setTotal] = useState(0);
 
-  // Categories
   const getCategories = async () => {
     try {
       const response = await axios.get(
@@ -27,7 +26,6 @@ function Provider({ children }) {
     }
   };
 
-  // Product Detail
   const getProductDetail = async (id) => {
     try {
       const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
@@ -60,6 +58,9 @@ function Provider({ children }) {
 
   const addedProductAtFavoritesNotify = () =>
     toast("Product added to favorites");
+
+  const removeProductFromFavoritesNotify = () =>
+    toast("Product removed from favorites");
 
   const removedProductFromCartNotify = () => toast("Product removed from cart");
 
@@ -119,6 +120,7 @@ function Provider({ children }) {
     const updatedFavorites = favorites.filter((item) => item.id !== id);
     setFavorites(updatedFavorites);
     saveFavoritesToLocalStorage(updatedFavorites);
+    removeProductFromFavoritesNotify();
   };
 
   const handleChangeAmount = (product, d) => {
