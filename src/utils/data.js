@@ -11,4 +11,8 @@ export const navigations = [
     name: "Contact",
     path: "/contact",
   },
+  {
+    name: "Your Cart",
+    path: "/cart",
+  },
 ];

@@ -107,12 +107,6 @@ const Header = () => {
               <ul className="flex flex-col gap-2 md:gap-0 font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-6 md:mt-0 md:border-0 md:bg-white">
                 {renderedNavigations}
               </ul>
-              <Link
-                to="/cart"
-                className="hidden md:inline mr-1 font-medium hover:text-gray-800 transition-colors"
-              >
-                Your Cart
-              </Link>
               <button
                 id="dropdownUserAvatarButton"
                 data-dropdown-toggle="dropdownAvatar"
