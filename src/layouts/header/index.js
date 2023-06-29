@@ -1,4 +1,4 @@
-import { FaShoppingBag, FaShoppingCart } from "react-icons/fa";
+import { FaShoppingBag } from "react-icons/fa";
 import { Link, useMatch } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
 import { useState } from "react";
@@ -44,12 +44,6 @@ const Header = () => {
         {searchRoute ? null : (
           <>
             <div className={`items-center gap-1 ${user ? "flex" : "hidden"}`}>
-              <Link
-                to="/cart"
-                className="inline md:hidden mb-3 mr-2 text-white bg-indigo-500 border-1 border-indigo-600 py-2 px-3 focus:outline-none hover:bg-indigo-700 rounded-full mt-4 md:mt-0 transition-colors"
-              >
-                <FaShoppingCart size={18} />
-              </Link>
               <button
                 id="dropdownUserAvatarButton"
                 data-dropdown-toggle="dropdownAvatar"

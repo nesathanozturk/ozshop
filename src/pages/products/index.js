@@ -13,7 +13,7 @@ const Products = () => {
       <Categories />
       <Title title="Products" altTitle="All Products" />
       {apiData?.length > 0 ? (
-        <div className="py-8">
+        <div className="px-6 md:px-0 py-8">
           <div className="flex md:gap-10 md:justify-center flex-wrap">
             {apiData?.map((product) => (
               <ProductCard key={product.id} product={product} />
