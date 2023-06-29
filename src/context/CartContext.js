@@ -61,7 +61,7 @@ function Provider({ children }) {
   const addedProductAtFavoritesNotify = () =>
     toast("Product added to favorites");
 
-  const removedProductAtCartNotify = () => toast("Product removed from cart");
+  const removedProductFromCartNotify = () => toast("Product removed from cart");
 
   const clearCartNotify = () => toast("You have cleared your cart");
 
@@ -80,15 +80,15 @@ function Provider({ children }) {
     } else {
       setCarts([...carts, { ...product, quantity: 1 }]);
       saveCartToLocalStorage(carts);
+      addedProductAtCartNotify();
     }
-    addedProductAtCartNotify();
   };
 
   const removeProduct = (id) => {
     const updatedCart = carts.filter((item) => item.id !== id);
     setCarts(updatedCart);
     saveCartToLocalStorage(updatedCart);
-    removedProductAtCartNotify();
+    removedProductFromCartNotify();
   };
 
   const clearCart = () => {
@@ -102,10 +102,17 @@ function Provider({ children }) {
   };
 
   const addProductToFavorites = (product) => {
-    const updatedFavorites = [...favorites, product];
-    setFavorites(updatedFavorites);
-    saveFavoritesToLocalStorage(updatedFavorites);
-    addedProductAtFavoritesNotify();
+    const existItem = favorites.find((item) => item.id === product.id);
+
+    if (existItem) {
+      alert("This product already exists in your favorites!");
+      return;
+    } else {
+      const updatedFavorites = [...favorites, product];
+      setFavorites(updatedFavorites);
+      saveFavoritesToLocalStorage(updatedFavorites);
+      addedProductAtFavoritesNotify();
+    }
   };
 
   const removeProductAtFavorites = (id) => {
