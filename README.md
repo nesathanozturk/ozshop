@@ -10,7 +10,7 @@
 - Axios
 - Local Storage
 - Firebase
-- Tailwind and Flowbite for styles
+- Tailwind and Tailblocks for styles
 - Icons for React Icons
 - Toastify for React Toastify
 
