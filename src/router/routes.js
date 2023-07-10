@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import Loading from "../components/loading";
 const Auth = lazy(() => import("../pages/auth"));
 const Main = lazy(() => import("../pages/main"));
 const Cart = lazy(() => import("../pages/cart"));
@@ -8,12 +9,12 @@ const Favorites = lazy(() => import("../pages/favorites"));
 const FavoriteProductDetail = lazy(() =>
   import("../pages/favorite-product-detail")
 );
+const NotFound = lazy(() => import("../pages/not-found"));
 const Home = lazy(() => import("../pages/home"));
 const SignIn = lazy(() => import("../pages/sign-in"));
 const SignUp = lazy(() => import("../pages/sign-up"));
 const Products = lazy(() => import("../pages/products"));
 const ProductDetail = lazy(() => import("../pages/product-detail"));
-const NotFound = lazy(() => import("../pages/not-found"));
 
 const routes = [
   {
@@ -27,7 +28,7 @@ const routes = [
       {
         path: "sign-up",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <SignUp />
           </Suspense>
         ),
@@ -35,7 +36,7 @@ const routes = [
       {
         path: "sign-in",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <SignIn />
           </Suspense>
         ),
@@ -54,7 +55,7 @@ const routes = [
         path: "",
         index: true,
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <Home />
           </Suspense>
         ),
@@ -62,7 +63,7 @@ const routes = [
       {
         path: "products",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <Products />
           </Suspense>
         ),
@@ -70,7 +71,7 @@ const routes = [
       {
         path: "product/:id",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <ProductDetail />
           </Suspense>
         ),
@@ -78,7 +79,7 @@ const routes = [
       {
         path: "products/product/:id",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <ProductDetail />
           </Suspense>
         ),
@@ -86,7 +87,7 @@ const routes = [
       {
         path: "favorites",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <Favorites />
           </Suspense>
         ),
@@ -94,7 +95,7 @@ const routes = [
       {
         path: "favorites/favorite/:id",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <FavoriteProductDetail />
           </Suspense>
         ),
@@ -102,7 +103,7 @@ const routes = [
       {
         path: "categories/:name",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <CategoryProducts />
           </Suspense>
         ),
@@ -110,7 +111,7 @@ const routes = [
       {
         path: "categories/:name/product/:id",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <ProductDetail />
           </Suspense>
         ),
@@ -118,7 +119,7 @@ const routes = [
       {
         path: "contact",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <Contact />
           </Suspense>
         ),
@@ -126,7 +127,7 @@ const routes = [
       {
         path: "cart",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <Cart />
           </Suspense>
         ),
@@ -134,7 +135,7 @@ const routes = [
       {
         path: "*",
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <NotFound />
           </Suspense>
         ),
