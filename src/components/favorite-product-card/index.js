@@ -7,7 +7,10 @@ const FavoriteProductCard = ({ favorites }) => {
   const { removeProductAtFavorites } = useCartContext();
 
   const renderedFavoriteProduct = favorites?.map((favorite) => (
-    <div className="lg:w-1/5 md:w-1/4 flex flex-col gap-1 justify-between p-4 w-full border border-opacity-50 mb-4 rounded-lg cursor-pointer hover:scale-105 hover:shadow-lg transform transition duration-500 ease-in-out">
+    <div
+      key={favorite?.id}
+      className="lg:w-1/5 md:w-1/4 flex flex-col gap-1 justify-between p-4 w-full border border-opacity-50 mb-4 rounded-lg cursor-pointer hover:scale-105 hover:shadow-lg transform transition duration-500 ease-in-out"
+    >
       <Link
         to={`favorite/${favorite?.id}`}
         className="block relative h-48 rounded overflow-hidden"
