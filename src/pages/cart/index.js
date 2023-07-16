@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { TiTimes } from "react-icons/ti";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
-import useCartContext from "../../hooks/use-cart-context";
 import { LeftArrow, MasterCardIcon } from "../../components/icons";
+import Toastify from "../../components/toastify";
+import useCartContext from "../../hooks/use-cart-context";
 
 const Cart = () => {
   const {
@@ -182,18 +181,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <ToastContainer
-        position="top-left"
-        autoClose={1500}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      <Toastify />
     </div>
   );
 };

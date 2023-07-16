@@ -1,10 +1,9 @@
 import { BiArrowBack } from "react-icons/bi";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 import Loading from "../../components/loading";
 import { BottomArrow, ReviewStar } from "../../components/icons";
+import Toastify from "../../components/toastify";
 import useCartContext from "../../hooks/use-cart-context";
 import noImage from "../../assets/images/no-image.png";
 
@@ -109,18 +108,7 @@ const FavoriteProductDetail = () => {
           </div>
         </section>
       )}
-      <ToastContainer
-        position="top-left"
-        autoClose={1500}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      <Toastify />
     </>
   );
 };
