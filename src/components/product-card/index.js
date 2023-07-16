@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { BuyIcon } from "../icons";
 
-const ProductCard = ({ product }) => {
-  return (
+const ProductCard = ({ products }) => {
+  const renderedProduct = products?.map((product) => (
     <>
       <div
         key={product?.id}
@@ -37,7 +37,9 @@ const ProductCard = ({ product }) => {
         </Link>
       </div>
     </>
-  );
+  ));
+
+  return renderedProduct;
 };
 
 export default ProductCard;
