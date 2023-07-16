@@ -51,12 +51,12 @@ const Header = () => {
                 }`}
               >
                 <div className="py-2">
-                  <a
+                  <button
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer"
                     onClick={handleSignOut}
                   >
                     Sign out
-                  </a>
+                  </button>
                 </div>
               </div>
               <button

@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { RightArrow } from "../icons";
 
 const FeatureCard = ({ cards }) => {
-  const renderedCards = cards?.map((card) => (
+  const renderedCards = cards?.map((card, i) => (
     <Link
-      key={card?.id}
+      key={i}
       to={`/categories/${card}`}
       className="p-4 md:w-1/4 cursor-pointer"
     >
@@ -19,13 +19,10 @@ const FeatureCard = ({ cards }) => {
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,
             repellat.
           </p>
-          <a
-            href="#learnmore"
-            className="mt-3 text-indigo-500 inline-flex items-center"
-          >
+          <p className="mt-3 text-indigo-500 inline-flex items-center">
             Go to Category
             <RightArrow />
-          </a>
+          </p>
         </div>
       </div>
     </Link>
