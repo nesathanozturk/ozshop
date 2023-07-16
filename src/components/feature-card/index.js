@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 
 const FeatureCard = ({ cards }) => {
-  return (
+  const renderedCards = cards?.map((card) => (
     <Link
-      key={cards?.id}
-      to={`/categories/${cards}`}
+      key={card?.id}
+      to={`/categories/${card}`}
       className="p-4 md:w-1/4 cursor-pointer"
     >
       <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col hover:bg-gray-200 transition-colors">
         <div className="flex items-center mb-3">
           <h2 className="text-gray-900 text-lg title-font font-medium capitalize">
-            {cards || "Card Title"}
+            {card || "Category Title"}
           </h2>
         </div>
         <div className="flex-grow">
@@ -38,7 +38,9 @@ const FeatureCard = ({ cards }) => {
         </div>
       </div>
     </Link>
-  );
+  ));
+
+  return renderedCards;
 };
 
 export default FeatureCard;
