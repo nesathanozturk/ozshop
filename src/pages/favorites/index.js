@@ -13,9 +13,7 @@ const Favorites = () => {
         <>
           <Title title="Favorites" altTitle="Your Favorite Products" />
           <div className="p-8 flex md:gap-10 flex-wrap">
-            {favorites?.map((favorite) => (
-              <FavoriteProductCard key={favorite.id} favorites={favorite} />
-            ))}
+            <FavoriteProductCard favorites={favorites} />
           </div>
         </>
       ) : (
