@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import useCartContext from "../../hooks/use-cart-context";
 import { auth } from "../../firebase";
 import Loading from "../../components/loading";
+import useCartContext from "../../hooks/use-cart-context";
 
 const SignUp = () => {
   const { username, setUsername, email, setEmail, password, setPassword } =
@@ -11,6 +11,12 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth);
 
   if (loading) return <Loading />;
+
+  const clearInputs = () => {
+    setUsername("");
+    setEmail("");
+    setPassword("");
+  };
 
   const handleSignUp = (e) => {
     if (username === "" || email === "" || password === "") {
@@ -21,9 +27,7 @@ const SignUp = () => {
     } else {
       createUserWithEmailAndPassword(email, password);
       alert("You have successfully signed up!");
-      setUsername("");
-      setEmail("");
-      setPassword("");
+      clearInputs();
     }
   };
 
