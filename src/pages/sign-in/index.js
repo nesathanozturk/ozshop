@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../../firebase";
-import useCartContext from "../../hooks/use-cart-context";
 import Loading from "../../components/loading";
 import { SignInIcon } from "../../components/icons";
+import useCartContext from "../../hooks/use-cart-context";
 
 const SignIn = () => {
   const { username, setUsername, email, setEmail, password, setPassword } =
@@ -14,14 +14,18 @@ const SignIn = () => {
 
   if (loading) return <Loading />;
 
+  const clearInputs = () => {
+    setUsername("");
+    setEmail("");
+    setPassword("");
+  };
+
   const handleLogin = () => {
     if (username === "" || email === "" || password === "") {
       alert("Please fill in all fields");
     } else {
       signInWithEmailAndPassword(email, password);
-      setUsername("");
-      setEmail("");
-      setPassword("");
+      clearInputs();
     }
   };
 
