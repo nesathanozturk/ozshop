@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { RightArrow } from "../icons";
 
 const FeatureCard = ({ cards }) => {
   const renderedCards = cards?.map((card) => (
@@ -23,17 +24,7 @@ const FeatureCard = ({ cards }) => {
             className="mt-3 text-indigo-500 inline-flex items-center"
           >
             Go to Category
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-4 h-4 ml-2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
+            <RightArrow />
           </a>
         </div>
       </div>

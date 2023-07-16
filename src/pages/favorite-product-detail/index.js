@@ -1,10 +1,11 @@
 import { BiArrowBack } from "react-icons/bi";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useCartContext from "../../hooks/use-cart-context";
-import Loading from "../../components/loading";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import Loading from "../../components/loading";
+import { BottomArrow, ReviewStar } from "../../components/icons";
+import useCartContext from "../../hooks/use-cart-context";
 import noImage from "../../assets/images/no-image.png";
 
 const FavoriteProductDetail = () => {
@@ -51,61 +52,7 @@ const FavoriteProductDetail = () => {
                 ) : (
                   <div className="flex mb-4 mt-3">
                     <span className="flex items-center">
-                      <svg
-                        fill="currentColor"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 text-indigo-500"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                      </svg>
-                      <svg
-                        fill="currentColor"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 text-indigo-500"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                      </svg>
-                      <svg
-                        fill="currentColor"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 text-indigo-500"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                      </svg>
-                      <svg
-                        fill="currentColor"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 text-indigo-500"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                      </svg>
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 text-indigo-500"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                      </svg>
+                      <ReviewStar />
                       <span className="text-gray-600 ml-3">4 Reviews</span>
                     </span>
                   </div>
@@ -134,17 +81,7 @@ const FavoriteProductDetail = () => {
                           <option>XL</option>
                         </select>
                         <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                          <svg
-                            fill="none"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            className="w-4 h-4"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M6 9l6 6 6-6"></path>
-                          </svg>
+                          <BottomArrow />
                         </span>
                       </div>
                     </div>

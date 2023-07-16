@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import hero from "../../assets/images/hero.jpg";
+import { RightArrow } from "../../components/icons";
 
 const Hero = () => {
   return (
@@ -19,17 +20,7 @@ const Hero = () => {
               className="inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0 transition-colors"
             >
               Show Now
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 ml-1"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
+              <RightArrow margin="ml-2" />
             </Link>
           </div>
         </div>
