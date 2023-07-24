@@ -45,7 +45,7 @@ function AuthProvider({ children }) {
 
   const handleSignUp = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(email, password);
       alert("You have successfully signed up!");
       clearInputs();
     } catch (error) {
@@ -59,9 +59,8 @@ function AuthProvider({ children }) {
 
   const handleSignInWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, provider).then((result) => {
-        alert("You signed in with Google!");
-      });
+      await signInWithPopup(auth, provider);
+      alert("You have successfully signed in with Google!");
     } catch (error) {
       console.log(error);
     }

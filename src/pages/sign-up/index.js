@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import useAuthContext from "../../hooks/use-auth-context";
 import { useCallback } from "react";
+import useAuthContext from "../../hooks/use-auth-context";
 
 const SignUp = () => {
   const {
@@ -20,7 +20,7 @@ const SignUp = () => {
       if (!email || !password || !username) {
         return;
       }
-      return handleSignUp();
+      await handleSignUp();
     },
     [username, email, password]
   );

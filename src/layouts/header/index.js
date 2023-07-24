@@ -6,7 +6,7 @@ import { auth } from "../../firebase";
 import { HamburgerIcon } from "../../components/icons";
 import DropdownMenu from "../../components/ui/DropdownMenu";
 import useAuthContext from "../../hooks/use-auth-context";
-import avatar from "../../assets/images/user.png";
+import DropdownButton from "../../components/ui/DropdownButton";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,15 +29,11 @@ const Header = () => {
         {searchRoute ? null : (
           <>
             <div className={`items-center gap-1 ${user ? "flex" : "hidden"}`}>
-              <button
-                id="dropdownUserAvatarButton"
-                data-dropdown-toggle="dropdownAvatar"
-                className="flex md:hidden text-sm border-[1px] rounded-full p-1 md:mr-0 bg-gray-200 transition-colors"
-                type="button"
-                onClick={() => setDropdown(!dropdown)}
-              >
-                <img className="w-7 h-7" src={avatar} alt="User" />
-              </button>
+              <DropdownButton
+                dropdown={dropdown}
+                setDropdown={setDropdown}
+                md="flex md:hidden"
+              />
               <div
                 id="dropdownAvatar"
                 className={`z-10 md:hidden bg-white divide-y absolute max-xs:top-28 max-xs:left-4 xs:top-[4.8rem] xs:right-[4.5rem] divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 ${
@@ -46,7 +42,7 @@ const Header = () => {
               >
                 <div className="py-2">
                   <button
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer"
+                    className="w-full block px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white cursor-pointer"
                     onClick={handleSignOut}
                   >
                     Sign out
