@@ -4,10 +4,7 @@ import { toast } from "react-toastify";
 
 const CartContext = createContext();
 
-function Provider({ children }) {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function CartProvider({ children }) {
   const [product, setProduct] = useState({});
   const [favorites, setFavorites] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -140,12 +137,6 @@ function Provider({ children }) {
   };
 
   const valueToShare = {
-    username,
-    setUsername,
-    email,
-    setEmail,
-    password,
-    setPassword,
     product,
     categories,
     getCategories,
@@ -168,5 +159,5 @@ function Provider({ children }) {
   );
 }
 
-export { Provider };
+export { CartProvider };
 export default CartContext;

@@ -1,47 +1,37 @@
 import { Link } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "../../firebase";
-import Loading from "../../components/loading";
 import { SignInIcon } from "../../components/icons";
-import useCartContext from "../../hooks/use-cart-context";
+import useAuthContext from "../../hooks/use-auth-context";
+import { useCallback } from "react";
 
 const SignIn = () => {
-  const { username, setUsername, email, setEmail, password, setPassword } =
-    useCartContext();
-  const [signInWithEmailAndPassword, loading] =
-    useSignInWithEmailAndPassword(auth);
+  const {
+    username,
+    setUsername,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleSignIn,
+    handleSignInWithGoogle,
+  } = useAuthContext();
 
-  if (loading) return <Loading />;
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
 
-  const clearInputs = () => {
-    setUsername("");
-    setEmail("");
-    setPassword("");
-  };
-
-  const handleLogin = () => {
-    if (username === "" || email === "" || password === "") {
-      alert("Please fill in all fields");
-    } else {
-      signInWithEmailAndPassword(email, password);
-      clearInputs();
-    }
-  };
-
-  const handleSignInWithGoogle = () => {
-    const provider = new GoogleAuthProvider();
-
-    signInWithPopup(auth, provider).then((result) => {
-      alert("You signed in with Google!");
-    });
-  };
+      if (!email || !password || !username) {
+        return;
+      }
+      await handleSignIn();
+    },
+    [username, email, password]
+  );
 
   return (
     <div className="flex justify-center items-center my-10">
       <div className="w-full max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow-lg sm:p-6 md:p-8">
-        <form className="space-y-6" action="#">
-          <h5 className="text-3xl font-semibold text-gray-900">Sign-In</h5>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <h5 className="text-3xl font-semibold text-gray-900">Sign In</h5>
           <div>
             <label
               htmlFor="username"
@@ -54,7 +44,7 @@ const SignIn = () => {
               name="username"
               id="username"
               className="bg-gray-50 border border-gray-300 focus:border-purple-600 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
-              placeholder="Your username"
+              placeholder="frankcastle"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -71,7 +61,7 @@ const SignIn = () => {
               name="email"
               id="email"
               className="bg-gray-50 border border-gray-300 focus:border-purple-600 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
-              placeholder="Your email"
+              placeholder="example@gmail.com"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -88,7 +78,7 @@ const SignIn = () => {
               type="password"
               name="password"
               id="password"
-              placeholder="Your password"
+              placeholder="*********"
               className="bg-gray-50 border border-gray-300 focus:border-purple-600 focus:outline-none text-gray-900 font-semibold text-sm rounded block w-full p-2.5"
               required
               value={password}
@@ -98,9 +88,8 @@ const SignIn = () => {
           <button
             type="submit"
             className="w-full text-white bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-3 text-center transition-colors"
-            onClick={handleLogin}
           >
-            Sign-In
+            Sign In
           </button>
           <button
             type="button"

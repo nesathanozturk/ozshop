@@ -1,26 +1,20 @@
 import { FaShoppingBag } from "react-icons/fa";
 import { Link, useMatch } from "react-router-dom";
-import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useState } from "react";
 import { auth } from "../../firebase";
 import { HamburgerIcon } from "../../components/icons";
 import DropdownMenu from "../../components/ui/DropdownMenu";
+import useAuthContext from "../../hooks/use-auth-context";
 import avatar from "../../assets/images/user.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [user] = useAuthState(auth);
-  const [signOut] = useSignOut(auth);
+  const { handleSignOut } = useAuthContext();
 
   const searchRoute = useMatch("/sign-in") + useMatch("/sign-up");
-
-  const handleSignOut = async () => {
-    const success = await signOut();
-    if (success) {
-      alert("You are sign out!");
-    }
-  };
 
   return (
     <nav className="shadow-lg text-gray-600 relative">
